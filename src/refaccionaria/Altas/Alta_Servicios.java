@@ -38,7 +38,7 @@ public class Alta_Servicios extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/servicios.png"))); // NOI18N
-        jLabel1.setText("Servicios");
+        jLabel1.setText("Guardar Servicios");
 
         textFielda1.setLabelText("Descripcion del servicio");
 
@@ -59,15 +59,15 @@ public class Alta_Servicios extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(textFielda1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
-                                .addComponent(textFielda2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(textFielda2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addComponent(jLabel1)))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -75,11 +75,11 @@ public class Alta_Servicios extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addGap(66, 66, 66)
+                .addGap(70, 70, 70)
                 .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );

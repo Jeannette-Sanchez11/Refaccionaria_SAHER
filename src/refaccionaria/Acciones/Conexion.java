@@ -14,7 +14,7 @@ public class Conexion {
     public Connection conexion=null;
     public String driver="org.postgresql.Driver";
     public String user="postgres";
-    public String contra="postgres135";
+    public String contra="michael22";
     public String link="jdbc:postgresql://localhost:5432/refaccionaria";
     
     //metodo conexion con usuario

@@ -18,7 +18,7 @@ public class Select {
     Statement st;
     ResultSet rs=null;
     PreparedStatement ps=null;
-    String sql;//variable para recibir las sentencias de insercion
+    String sql;//variable para recibir las sentencias de busqueda
     int respu;
     
     public Select(){

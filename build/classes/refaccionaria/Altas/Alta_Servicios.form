@@ -25,10 +25,6 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="356" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
@@ -37,6 +33,10 @@
                               <Component id="textFielda2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="275" max="32767" attributes="0"/>
@@ -48,11 +48,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Component id="textFielda1" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               <Component id="textFielda2" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="231" max="32767" attributes="0"/>
+              <EmptySpace pref="227" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
@@ -71,7 +71,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagenes/servicios.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Servicios"/>
+        <Property name="text" type="java.lang.String" value="Guardar Servicios"/>
       </Properties>
     </Component>
     <Component class="refaccionaria.txtf.TextFielda" name="textFielda1">
