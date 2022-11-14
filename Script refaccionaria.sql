@@ -17,7 +17,7 @@ create table Empleado(
 	correo varchar NOT NULL,
 	primary key(id_Emp)
 );
-Insert into Empleado(nombre_Emp, ap_Pat, ap_Mat, status_Empleado, tel_Empleado, correo) values ('oscar','gutierrez','escobedo',1,'9621006472','asgev@gmail.com+');
+--Insert into Empleado(nombre_Emp, ap_Pat, ap_Mat, status_Empleado, tel_Empleado, correo) values ('oscar','gutierrez','escobedo',1,'9621006472','asgev@gmail.com+');
 
 --tabla cliente
 create table Cliente(
@@ -28,7 +28,7 @@ create table Cliente(
 	telefono varchar NOT NULL,
 	primary key(id_Cliente)
 );
-insert into Cliente(nombre, ap_Pat, ap_Mat, telefono) values ('Julio','Velazquez','Merida','9622546985');
+--insert into Cliente(nombre, ap_Pat, ap_Mat, telefono) values ('Julio','Velazquez','Merida','9622546985');
 
 --tabla ventas
 create table Venta(
@@ -42,7 +42,7 @@ create table Venta(
 	foreign key(id_Emp)References Empleado
 );
 
-insert into Venta()values();
+--insert into Venta()values();
 
 -- creacion de la tabla tipos de motos 
 create table Tipo_De_Moto(
@@ -54,7 +54,7 @@ create table Tipo_De_Moto(
 	primary key(id_Tipo)
 );
 
-insert into Tipo_De_Moto()values();
+--insert into Tipo_De_Moto()values();
 
 --Creacion de tabla articulos 
 create table Articulos(
@@ -67,7 +67,7 @@ create table Articulos(
 	primary key(codi_Barra),
 	foreign key (id_Tipo)References Tipo_De_Moto
 );
-insert into Articulos()values();
+--insert into Articulos()values();
 
 
 --creacion de la tabla servicios
@@ -79,7 +79,7 @@ create table Servicios(
 	--hora_Salida time NOT NULL,
 	primary key(id_Servi)
 );
-insert into Servicios()values();
+--insert into Servicios()values();
 
 --Creacion de la tabla proveedor 
 create table Proveedor(
@@ -88,7 +88,7 @@ create table Proveedor(
 	telefono varchar NOT NULL,
 	primary key(rfc_Proveedor)
 );
-insert into Proveedor() values();
+--insert into Proveedor() values();
 
 --Creacion de la tabla compraM
 create table CompraM(
@@ -100,7 +100,7 @@ create table CompraM(
 	foreign key (rfc_Proveedor) References Proveedor
 );
 
-insert into CompraM()values();
+--insert into CompraM()values();
 
 --Creacion de la tabla detalla compraM
 create table detalle_CompraM(
@@ -117,7 +117,7 @@ create table detalle_CompraM(
 	CONSTRAINT articulos_Codigo_barra_fkey foreign key (codi_Barra)
 	References Articulos(codi_Barra) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION 
 );
-insert into detalle_Venta() values();
+--insert into detalle_Venta() values();
 
 create table detalle_Venta(
 	id_Ventas integer NOT NULL,
@@ -132,7 +132,7 @@ create table detalle_Venta(
 	CONSTRAINT articulos_Codigo_barra_fkey foreign key (codi_Barra)
 	References Articulos(codi_Barra) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION 
 );
-insert into detalle_Venta()values();
+--insert into detalle_Venta()values();
 
 --tabla de usuarios
 create table usuarios(
@@ -141,6 +141,6 @@ create table usuarios(
 	contrasenia varchar NOT NULL,
 	primary key (id_usuario)
 );
-insert into usuarios()values();
+--insert into usuarios()values();
 
 --   controler entity service ;paquete de clases
