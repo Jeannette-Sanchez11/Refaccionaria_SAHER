@@ -99,18 +99,18 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="labelText" type="java.lang.String" value="RFC del proveedor"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del proveedor"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Numero Telefonico"/>
       </Properties>

@@ -28,8 +28,8 @@ public class Alta_Servicios extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        textFielda1 = new refaccionaria.txtf.TextFielda();
-        textFielda2 = new refaccionaria.txtf.TextFielda();
+        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
         jButton1 = new javax.swing.JButton();
 
         setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -89,7 +89,7 @@ public class Alta_Servicios extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.txtf.TextFielda textFielda1;
-    private refaccionaria.txtf.TextFielda textFielda2;
+    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.txtf.TextFielda textFielda2;
     // End of variables declaration//GEN-END:variables
 }

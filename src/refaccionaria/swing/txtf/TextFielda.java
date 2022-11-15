@@ -1,5 +1,5 @@
 
-package refaccionaria.txtf;
+package refaccionaria.swing.txtf;
 
 import java.awt.Color;
 import java.awt.FontMetrics;
@@ -45,7 +45,7 @@ public class TextFielda extends JTextField{
     private Color lineColor = new Color(32, 189, 255);
 
     public TextFielda() {
-        setBorder(new EmptyBorder(20, 3, 10, 3));
+        setBorder(new EmptyBorder(19, 3, 9, 3));
         setSelectionColor(new Color(76, 204, 255));
         setForeground(Color.white);
         setBackground(new Color(61,61,61));

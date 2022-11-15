@@ -27,10 +27,10 @@ public class Alta_Clientes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textFielda1 = new refaccionaria.txtf.TextFielda();
-        textFielda2 = new refaccionaria.txtf.TextFielda();
-        textFielda3 = new refaccionaria.txtf.TextFielda();
-        textFielda4 = new refaccionaria.txtf.TextFielda();
+        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda4 = new refaccionaria.swing.txtf.TextFielda();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -98,9 +98,9 @@ public class Alta_Clientes extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.txtf.TextFielda textFielda1;
-    private refaccionaria.txtf.TextFielda textFielda2;
-    private refaccionaria.txtf.TextFielda textFielda3;
-    private refaccionaria.txtf.TextFielda textFielda4;
+    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.txtf.TextFielda textFielda2;
+    private refaccionaria.swing.txtf.TextFielda textFielda3;
+    private refaccionaria.swing.txtf.TextFielda textFielda4;
     // End of variables declaration//GEN-END:variables
 }

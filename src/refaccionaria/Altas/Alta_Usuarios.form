@@ -21,11 +21,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="358" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
@@ -34,6 +30,10 @@
                               <Component id="textFielda2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="275" max="32767" attributes="0"/>
@@ -45,11 +45,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               <Component id="textFielda1" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Component id="textFielda2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="234" max="32767" attributes="0"/>
+              <EmptySpace pref="236" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
@@ -68,15 +68,15 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagenes/usuario.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Usuarios"/>
+        <Property name="text" type="java.lang.String" value="Guardar Usuarios"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre de usuario"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Contrase&#xf1;a"/>
       </Properties>

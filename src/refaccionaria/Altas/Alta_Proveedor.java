@@ -20,9 +20,9 @@ public class Alta_Proveedor extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        textFielda1 = new refaccionaria.txtf.TextFielda();
-        textFielda2 = new refaccionaria.txtf.TextFielda();
-        textFielda3 = new refaccionaria.txtf.TextFielda();
+        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 680));
@@ -88,8 +88,8 @@ public class Alta_Proveedor extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.txtf.TextFielda textFielda1;
-    private refaccionaria.txtf.TextFielda textFielda2;
-    private refaccionaria.txtf.TextFielda textFielda3;
+    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.txtf.TextFielda textFielda2;
+    private refaccionaria.swing.txtf.TextFielda textFielda3;
     // End of variables declaration//GEN-END:variables
 }

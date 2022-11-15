@@ -28,6 +28,11 @@ public class Actualizar_Proveedor extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
+        bBuscar = new javax.swing.JButton();
+        bActualizar = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -38,6 +43,27 @@ public class Actualizar_Proveedor extends javax.swing.JPanel {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel1.setVerifyInputWhenFocusTarget(false);
 
+        textFielda3.setLabelText("Numero Telefonico");
+
+        textFielda1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        textFielda1.setLabelText("RFC del proveedor");
+
+        textFielda2.setLabelText("Nombre del proveedor");
+
+        bBuscar.setBackground(new java.awt.Color(165, 254, 203));
+        bBuscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        bBuscar.setForeground(new java.awt.Color(25, 25, 25));
+        bBuscar.setText("Buscar");
+        bBuscar.setBorder(null);
+        bBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        bActualizar.setBackground(new java.awt.Color(32, 189, 255));
+        bActualizar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        bActualizar.setForeground(new java.awt.Color(25, 25, 25));
+        bActualizar.setText("Actualizar");
+        bActualizar.setBorder(null);
+        bActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -45,19 +71,47 @@ public class Actualizar_Proveedor extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(311, 311, 311)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(164, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textFielda1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45)
+                        .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bActualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addContainerGap(590, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bActualizar;
+    private javax.swing.JButton bBuscar;
     private javax.swing.JLabel jLabel1;
+    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.txtf.TextFielda textFielda2;
+    private refaccionaria.swing.txtf.TextFielda textFielda3;
     // End of variables declaration//GEN-END:variables
 }

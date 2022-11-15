@@ -34,16 +34,16 @@ public class Baja_Cliente extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cliente.png"))); // NOI18N
-        jLabel1.setText("Clientes");
+        jLabel1.setText("Eliminar Cliente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(391, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(339, 339, 339)
                 .addComponent(jLabel1)
-                .addGap(390, 390, 390))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

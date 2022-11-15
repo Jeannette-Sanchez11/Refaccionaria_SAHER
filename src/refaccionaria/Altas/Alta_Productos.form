@@ -72,32 +72,32 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Codigo de barras"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Tipo de moto"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del articulo"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Marca"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda5">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda5">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Precio"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda6">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda6">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Stock"/>
       </Properties>
