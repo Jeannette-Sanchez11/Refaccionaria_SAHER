@@ -28,10 +28,10 @@ public class Alta_TipoM extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        textFielda1 = new refaccionaria.txtf.TextFielda();
-        textFielda2 = new refaccionaria.txtf.TextFielda();
-        textFielda3 = new refaccionaria.txtf.TextFielda();
-        textFielda4 = new refaccionaria.txtf.TextFielda();
+        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda4 = new refaccionaria.swing.txtf.TextFielda();
         jButton1 = new javax.swing.JButton();
 
         setOpaque(false);
@@ -81,7 +81,7 @@ public class Alta_TipoM extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(44, 44, 44)
                 .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,7 +89,7 @@ public class Alta_TipoM extends javax.swing.JPanel {
                 .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(textFielda4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -99,9 +99,9 @@ public class Alta_TipoM extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.txtf.TextFielda textFielda1;
-    private refaccionaria.txtf.TextFielda textFielda2;
-    private refaccionaria.txtf.TextFielda textFielda3;
-    private refaccionaria.txtf.TextFielda textFielda4;
+    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.txtf.TextFielda textFielda2;
+    private refaccionaria.swing.txtf.TextFielda textFielda3;
+    private refaccionaria.swing.txtf.TextFielda textFielda4;
     // End of variables declaration//GEN-END:variables
 }

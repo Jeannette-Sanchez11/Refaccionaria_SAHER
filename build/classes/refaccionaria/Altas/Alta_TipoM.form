@@ -47,7 +47,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Component id="textFielda1" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="textFielda2" min="-2" pref="45" max="-2" attributes="0"/>
@@ -55,7 +55,7 @@
               <Component id="textFielda3" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="textFielda4" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="173" max="32767" attributes="0"/>
+              <EmptySpace pref="160" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
@@ -77,22 +77,22 @@
         <Property name="text" type="java.lang.String" value="Tipo de moto"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Modelo"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del tipo de moto"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Marca"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="A&#xf1;o de la motocicleta"/>
       </Properties>

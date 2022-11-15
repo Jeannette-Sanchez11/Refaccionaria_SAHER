@@ -56,25 +56,67 @@ public class Main extends javax.swing.JFrame {
                 if (index == 3 && indexSubMenu == 1) {
                     showForm(new Alta_TipoM());
                 }
+                if (index == 3 && indexSubMenu == 2) {
+                    showForm(new Buscar_TM());
+                }
+                if (index == 3 && indexSubMenu == 3) {
+                    showForm(new Actualizar_Productos());
+                }
+                if (index == 3 && indexSubMenu == 4) {
+                    showForm(new Baja_TipoM());
+                }
                 //Menu de servicios----------------------------------------------------------------------------
                 if (index == 4 && indexSubMenu == 1) {
                     showForm(new Alta_Servicios());
+                }
+                if (index == 4 && indexSubMenu == 2) {
+                    showForm(new Buscar_Servicio());
+                }
+                if (index == 4 && indexSubMenu == 3) {
+                    showForm(new Actualizar_Servicios());
+                }
+                if (index == 4 && indexSubMenu == 4) {
+                    showForm(new Baja_Servicios());
                 }
                 //Menu de ventas----------------------------------------------------------------------------
                 if (index == 5 && indexSubMenu == 1) {
                     showForm(new Alta_Venta());
                 }
+                if (index == 5  && indexSubMenu == 2) {
+                    showForm(new Buscar_Venta());
+                }
                 //Menu de compras----------------------------------------------------------------------------
                 if (index == 6 && indexSubMenu == 1) {
                     showForm(new Alta_compra());
+                }
+                if (index == 6  && indexSubMenu == 2) {
+                    showForm(new Buscar_compra());
                 }
                 //Menu de Clientes----------------------------------------------------------------------------
                 if (index == 7 && indexSubMenu == 1) {
                     showForm(new Alta_Clientes());
                 }
+                if (index == 7 && indexSubMenu == 2) {
+                    showForm(new Buscar_Clientes());
+                }
+                if (index == 7 && indexSubMenu == 3) {
+                    showForm(new Actualizar_Cliente());
+                }
+                if (index == 7 && indexSubMenu == 4) {
+                    showForm(new Baja_Cliente());
+                }
                 //Menu de usuarios----------------------------------------------------------------------------
                 if (index == 8 && indexSubMenu == 1) {
                     showForm(new Alta_Usuarios());
+                }
+                if (index == 8 && indexSubMenu == 2) {
+                    showForm(new Buscar_Usuario());
+                }
+                if (index == 8 && indexSubMenu == 3) {
+                    showForm(new Actualizar_Usuario());
+                }
+                if (index == 8 && indexSubMenu == 4) {
+                    showForm(new Baja_Usuario());
                 }
                 //Menu de empleado----------------------------------------------------------------------------
                 if (index == 9 && indexSubMenu == 1) {
@@ -82,6 +124,12 @@ public class Main extends javax.swing.JFrame {
                 }
                 if (index == 9 && indexSubMenu == 2) {
                     showForm(new Buscar_Empleado());
+                }
+                if (index == 9 && indexSubMenu == 3) {
+                    showForm(new Actualizar_Empleado());
+                }
+                if (index == 9 && indexSubMenu == 4) {
+                    showForm(new Baja_Empleado());
                 }
                 /*else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
@@ -133,7 +181,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 

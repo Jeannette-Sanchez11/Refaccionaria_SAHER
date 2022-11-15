@@ -59,7 +59,7 @@
                       <Component id="roundPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,32 +106,32 @@
         <Property name="text" type="java.lang.String" value="Guardar Venta"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="Fecha_venta">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="Fecha_venta">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Fecha"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del cliente"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del empleado"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Coidgo de barras"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda5">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda5">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Cantidad"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda6">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda6">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Monto final"/>
       </Properties>

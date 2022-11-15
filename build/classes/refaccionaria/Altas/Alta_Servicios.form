@@ -74,12 +74,12 @@
         <Property name="text" type="java.lang.String" value="Guardar Servicios"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Descripcion del servicio"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="labelText" type="java.lang.String" value="Precio del servicio"/>

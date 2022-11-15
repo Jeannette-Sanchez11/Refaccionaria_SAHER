@@ -26,7 +26,7 @@ public class Form_Dashboard extends javax.swing.JPanel {
         table.addRow(new Object[]{"12", "Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018"});
         table.addRow(new Object[]{"13", "Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018"});
         table.addRow(new Object[]{"14", "Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018"});
-*/
+        */
         //  init card data
         //card1.setData(new ModelCard(null, null, null, "$ 500.00", "Report Income Monthly"));
        // card2.setData(new ModelCard(null, null, null, "$ 800.00", "Report Expense Monthly"));

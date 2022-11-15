@@ -34,7 +34,7 @@ public class Bajas_Proveedores extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_businessman_35px_1.png"))); // NOI18N
-        jLabel1.setText("Proveedor");
+        jLabel1.setText("Eliminar Proveedor");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel1.setVerifyInputWhenFocusTarget(false);
 

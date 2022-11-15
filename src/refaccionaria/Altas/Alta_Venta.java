@@ -37,12 +37,12 @@ public class Alta_Venta extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        Fecha_venta = new refaccionaria.txtf.TextFielda();
-        textFielda2 = new refaccionaria.txtf.TextFielda();
-        textFielda3 = new refaccionaria.txtf.TextFielda();
-        textFielda4 = new refaccionaria.txtf.TextFielda();
-        textFielda5 = new refaccionaria.txtf.TextFielda();
-        textFielda6 = new refaccionaria.txtf.TextFielda();
+        Fecha_venta = new refaccionaria.swing.txtf.TextFielda();
+        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda4 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda5 = new refaccionaria.swing.txtf.TextFielda();
+        textFielda6 = new refaccionaria.swing.txtf.TextFielda();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         roundPanel1 = new refaccionaria.swing.RoundPanel();
@@ -145,7 +145,7 @@ public class Alta_Venta extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,17 +174,17 @@ public class Alta_Venta extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private refaccionaria.txtf.TextFielda Fecha_venta;
+    private refaccionaria.swing.txtf.TextFielda Fecha_venta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private refaccionaria.swing.RoundPanel roundPanel1;
     private refaccionaria.swing.table.Table table1;
-    private refaccionaria.txtf.TextFielda textFielda2;
-    private refaccionaria.txtf.TextFielda textFielda3;
-    private refaccionaria.txtf.TextFielda textFielda4;
-    private refaccionaria.txtf.TextFielda textFielda5;
-    private refaccionaria.txtf.TextFielda textFielda6;
+    private refaccionaria.swing.txtf.TextFielda textFielda2;
+    private refaccionaria.swing.txtf.TextFielda textFielda3;
+    private refaccionaria.swing.txtf.TextFielda textFielda4;
+    private refaccionaria.swing.txtf.TextFielda textFielda5;
+    private refaccionaria.swing.txtf.TextFielda textFielda6;
     // End of variables declaration//GEN-END:variables
 }
