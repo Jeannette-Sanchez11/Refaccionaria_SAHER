@@ -30,16 +30,14 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="textFielda1" alignment="0" pref="465" max="32767" attributes="0"/>
-                              <Component id="textFielda3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textFielda4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textFielda5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textFielda6" max="32767" attributes="0"/>
-                              <Component id="textFielda2" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="textFielda1" alignment="0" pref="465" max="32767" attributes="0"/>
+                          <Component id="textFielda3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textFielda4" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textFielda5" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textFielda6" alignment="0" max="32767" attributes="0"/>
+                          <Component id="comboBoxA1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -54,9 +52,9 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="textFielda1" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda2" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="comboBoxA1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="textFielda3" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="textFielda4" min="-2" pref="45" max="-2" attributes="0"/>
@@ -64,7 +62,7 @@
               <Component id="textFielda5" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="textFielda6" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
@@ -75,11 +73,6 @@
     <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Codigo de barras"/>
-      </Properties>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
-      <Properties>
-        <Property name="labelText" type="java.lang.String" value="Tipo de moto"/>
       </Properties>
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
@@ -131,6 +124,17 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor de Mano"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboBoxA1">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="eee"/>
+          </StringArray>
+        </Property>
+        <Property name="selectedIndex" type="int" value="-1"/>
+        <Property name="labeText" type="java.lang.String" value="Tipo de moto"/>
       </Properties>
     </Component>
   </SubComponents>

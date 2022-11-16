@@ -26,20 +26,18 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="164" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="textFielda1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textFielda2" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="textFielda3" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="bActualizar" min="-2" pref="166" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="textFielda1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textFielda2" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="bBuscar" min="-2" pref="166" max="-2" attributes="0"/>
+                      <Component id="textFielda3" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="bActualizar" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="bBuscar" min="-2" pref="166" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -58,9 +56,9 @@
               <Component id="textFielda2" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="textFielda3" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="239" max="32767" attributes="0"/>
+              <EmptySpace pref="206" max="32767" attributes="0"/>
               <Component id="bActualizar" min="-2" pref="44" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
