@@ -3,11 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package refaccionaria.Validaciones;
-
+import refaccionaria.Acciones.Conexion;
 /**
  *
  * @author Noe Guillen Gerardo
  */
-public class valiDeVentas {
+public class ValidarC {
+
+    public ValidarC() {
+    }
     
 }

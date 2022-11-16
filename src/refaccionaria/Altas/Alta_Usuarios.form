@@ -21,19 +21,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="textFielda1" pref="465" max="32767" attributes="0"/>
-                              <Component id="textFielda2" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="password1" pref="465" max="32767" attributes="0"/>
+                          <Component id="password2" alignment="1" max="32767" attributes="0"/>
+                          <Component id="textFielda2" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="275" max="32767" attributes="0"/>
@@ -45,11 +44,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-              <Component id="textFielda1" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               <Component id="textFielda2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="236" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="password1" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="password2" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace pref="188" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
@@ -70,19 +71,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Guardar Usuarios"/>
       </Properties>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
-      <Properties>
-        <Property name="labelText" type="java.lang.String" value="Nombre de usuario"/>
-      </Properties>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
-      <Properties>
-        <Property name="labelText" type="java.lang.String" value="Contrase&#xf1;a"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFielda2ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -106,6 +94,33 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="refaccionaria.swing.txtf.Password" name="password1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="3d" green="3d" red="3d" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="labelText" type="java.lang.String" value="Contrase&#xf1;a"/>
+      </Properties>
+    </Component>
+    <Component class="refaccionaria.swing.txtf.Password" name="password2">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="3d" green="3d" red="3d" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="labelText" type="java.lang.String" value="Confirmar Contrase&#xf1;a"/>
+      </Properties>
+    </Component>
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
+      <Properties>
+        <Property name="labelText" type="java.lang.String" value="Nombre de usuario"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
