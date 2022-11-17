@@ -5,17 +5,31 @@
  */
 package refaccionaria.Altas;
 
+import java.awt.Component;
+import java.sql.Connection;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Acciones.Insert;
+import refaccionaria.Validaciones.ValidarC;
+
 /**
  *
  * @author jesanher
  */
 public class Alta_Productos extends javax.swing.JPanel {
-
+    Insert in = new Insert();
+    Connection conex;
+    ValidarC v = new ValidarC();
+    Conexion c = new Conexion();
+    private Component rootPane;
     /**
      * Creates new form Alta_Productos
      */
     public Alta_Productos() {
         initComponents();
+    }
+    
+    public void Limpiar(){
+        txtCodigo.setText("");
     }
 
     /**
@@ -27,7 +41,7 @@ public class Alta_Productos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        txtCodigo = new refaccionaria.swing.txtf.TextFielda();
         textFielda3 = new refaccionaria.swing.txtf.TextFielda();
         textFielda4 = new refaccionaria.swing.txtf.TextFielda();
         textFielda5 = new refaccionaria.swing.txtf.TextFielda();
@@ -35,11 +49,12 @@ public class Alta_Productos extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         comboBoxA1 = new refaccionaria.swing.txtf.ComboBoxA();
+        Bcancelar = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 680));
 
-        textFielda1.setLabelText("Codigo de barras");
+        txtCodigo.setLabelText("Codigo de barras");
 
         textFielda3.setLabelText("Nombre del articulo");
 
@@ -58,11 +73,22 @@ public class Alta_Productos extends javax.swing.JPanel {
         jButton1.setForeground(new java.awt.Color(25, 25, 25));
         jButton1.setText("Guardar");
         jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         comboBoxA1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "eee" }));
         comboBoxA1.setSelectedIndex(-1);
         comboBoxA1.setLabeText("Tipo de moto");
+
+        Bcancelar.setBackground(new java.awt.Color(235, 47, 47));
+        Bcancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        Bcancelar.setForeground(new java.awt.Color(25, 25, 25));
+        Bcancelar.setText("Cancelar");
+        Bcancelar.setBorder(null);
+        Bcancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,13 +102,16 @@ public class Alta_Productos extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFielda1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
                             .addComponent(textFielda3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(textFielda4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(textFielda5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(textFielda6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboBoxA1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(comboBoxA1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -91,7 +120,7 @@ public class Alta_Productos extends javax.swing.JPanel {
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
                 .addGap(55, 55, 55)
-                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(comboBoxA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
@@ -102,21 +131,29 @@ public class Alta_Productos extends javax.swing.JPanel {
                 .addComponent(textFielda5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(textFielda6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcancelarActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+    }//GEN-LAST:event_BcancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bcancelar;
     private refaccionaria.swing.txtf.ComboBoxA comboBoxA1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
     private refaccionaria.swing.txtf.TextFielda textFielda3;
     private refaccionaria.swing.txtf.TextFielda textFielda4;
     private refaccionaria.swing.txtf.TextFielda textFielda5;
     private refaccionaria.swing.txtf.TextFielda textFielda6;
+    private refaccionaria.swing.txtf.TextFielda txtCodigo;
     // End of variables declaration//GEN-END:variables
 }

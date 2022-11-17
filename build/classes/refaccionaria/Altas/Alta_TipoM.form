@@ -27,13 +27,15 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textFielda2" min="-2" pref="465" max="-2" attributes="0"/>
-                              <Component id="textFielda3" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
-                              <Component id="textFielda4" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
-                              <Component id="textFielda1" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtTipo" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Component id="txtMarca" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Component id="txtAnio" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Component id="txtModelo" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="bGuardar" min="-2" pref="166" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Bcancelar" min="-2" pref="166" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -48,16 +50,19 @@
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="textFielda1" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="txtModelo" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="textFielda2" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="txtTipo" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="textFielda3" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="txtMarca" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="textFielda4" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="160" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="txtAnio" min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bGuardar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="Bcancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,27 +82,27 @@
         <Property name="text" type="java.lang.String" value="Tipo de moto"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtModelo">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Modelo"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtTipo">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Nombre del tipo de moto"/>
+        <Property name="labelText" type="java.lang.String" value="Categoria del tipo de moto"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtMarca">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Marca"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtAnio">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="A&#xf1;o de la motocicleta"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="bGuardar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="57" green="cb" red="2c" type="rgb"/>
@@ -113,9 +118,32 @@
           <Border info="null"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGuardarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Bcancelar">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2f" green="2f" red="eb" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto" size="14" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="19" green="19" red="19" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BcancelarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

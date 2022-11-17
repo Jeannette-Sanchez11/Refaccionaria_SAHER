@@ -71,7 +71,7 @@ public class Insert {
     
     public boolean insertTipoDeMoto(String modelo,String nombre_TipoM,String marca, int anio){//metodo para insertar un tipo de moto
         //se prepara la insercion del dato de proveedor
-        sql="insert into Tipo_De_Moto values('"+modelo+"','"+nombre_TipoM+"','"+marca+"',"+anio+",');";
+        sql="insert into Tipo_De_Moto(modelo, nombre_TipoM, marca, anio) values('"+modelo+"','"+nombre_TipoM+"','"+marca+"',"+anio+");";
         respuesta=true;// nos devuelven el valor booleano despues de la insercion
         try{
             st=conex.createStatement();
@@ -95,7 +95,7 @@ public class Insert {
     
     public boolean insertArticulos(String codi_Barra,int id_Tipo,String nombre_Arti, String marca, float precio, int stock){//metodo para insertar un articulo
         //se prepara la insercion del dato de Articulos
-        sql="insert into Articulos values('"+codi_Barra+"',"+id_Tipo+",'"+nombre_Arti+"','"+marca+"',"+precio+","+stock+");";
+        sql="insert into Articulos(codi_Barra, id_Tipo, nombre_Arti, marca, precio, stock) values('"+codi_Barra+"',"+id_Tipo+",'"+nombre_Arti+"','"+marca+"',"+precio+","+stock+");";
         respuesta=true;// nos devuelven el valor booleano despues de la insercion
         try{
             st=conex.createStatement();
@@ -117,9 +117,9 @@ public class Insert {
         
     }
  
-    public boolean insertServicios(String descripcion,int precio_Servi){//metodo para insertar un servicio
+    public boolean insertServicios(String descripcion,float precio_Servi){//metodo para insertar un servicio
         //se prepara la insercion del dato de servicios
-        sql="insert into Servicios values('"+descripcion+"',"+precio_Servi+");";
+        sql="insert into Servicios(descripcion, precio_Servi) values('"+descripcion+"',"+precio_Servi+");";
         respuesta=true;// nos devuelven el valor booleano despues de la insercion
         try{
             st=conex.createStatement();
@@ -143,7 +143,7 @@ public class Insert {
     
     public boolean insertProveedor(String rfc,String nombre,String telefono){//metodo para insertar un proveedor
         //se prepara la insercion del dato de proveedor
-        sql="insert into Proveedor values('"+rfc+"','"+nombre+"','"+telefono+"');";
+        sql="insert into Proveedor(rfc_Proveedor, nombre, telefono) values('"+rfc+"','"+nombre+"','"+telefono+"');";
         respuesta=true;// nos devuelven el valor booleano despues de la insercion
         try{
             st=conex.createStatement();
@@ -165,9 +165,9 @@ public class Insert {
         
     }
 
-    public boolean insertUsuarios(String nombre_usuario,String contrsenia){//metodo para insertar un usuario
+    public boolean insertUsuarios(String nombre_usuario,String contrasenia){//metodo para insertar un usuario
         //se prepara la insercion del dato de usuario
-        sql="insert into usuarios values('"+nombre_usuario+"','"+contrsenia+"');";
+        sql="insert into usuarios(nombre_usuario, contrasenia) values('"+nombre_usuario+"','"+contrasenia+"');";
         respuesta=true;// nos devuelven el valor booleano despues de la insercion
         try{
             st=conex.createStatement();

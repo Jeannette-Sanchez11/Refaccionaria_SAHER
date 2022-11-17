@@ -121,8 +121,9 @@ create table detalle_CompraM(
 
 create table detalle_Venta(
 	id_Ventas integer NOT NULL,
+	id_servi integer ,
 	cns_DV integer NOT NULL,
-	codi_Barra varchar NOT NULL, 
+	codi_Barra varchar, 
 	precio_Venta_Arti numeric(10,2) NOT NULL,
 	cantidad integer NOT NULL,
 	total_Venta_Arti numeric(10,2) NOT NULL constraint total_Venta_Arti_Invalido check(total_Venta_Arti > 0 ),
@@ -130,7 +131,9 @@ create table detalle_Venta(
 	CONSTRAINT Venta_Id_venta_fkey foreign key (id_Ventas)
 	References Venta(id_Ventas) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE CASCADE,
 	CONSTRAINT articulos_Codigo_barra_fkey foreign key (codi_Barra)
-	References Articulos(codi_Barra) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION 
+	References Articulos(codi_Barra) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT servicios_Id_servi_fkey foreign key (id_servi)
+	References Servicios(id_servi) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION 
 );
 --insert into detalle_Venta()values();
 

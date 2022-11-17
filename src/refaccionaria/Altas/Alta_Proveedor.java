@@ -1,10 +1,20 @@
 package refaccionaria.Altas;
 
+import java.awt.Component;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 import refaccionaria.Acciones.Conexion;
 import refaccionaria.Acciones.Insert;
+import refaccionaria.Validaciones.ValidarC;
 
 public class Alta_Proveedor extends javax.swing.JPanel {
 
+    Insert in = new Insert();
+    Connection conex;
+    ValidarC v = new ValidarC();
+    Conexion c = new Conexion();
+    private Component rootPane;
+    
     public Alta_Proveedor() {
         initComponents();
     }
@@ -114,8 +124,27 @@ public class Alta_Proveedor extends javax.swing.JPanel {
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
         // TODO add your handling code here:
         try {
+            String rfc = txtRFC.getText();
+            String nombre = txtNombreP.getText();
+            String telefono = txtTelefonoP.getText();
+
+            if(!rfc.equals("") && !nombre.equals("") && !telefono.equals("")){
+                if(v.ValidarProveedor(rfc, nombre, telefono) == 0){
+                    JOptionPane.showMessageDialog(rootPane, "El Proveedor ya fue registrado!!");
+                }else{
+                    if(in.insertProveedor(rfc, nombre, telefono)){
+                        JOptionPane.showMessageDialog(rootPane, "Registro exitoso!!");
+                    }else {
+                        JOptionPane.showMessageDialog(rootPane, "Registro fallido");
+                    }
+                }        
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Favor de ingresar todos datos!!!!");
+            }
         } catch (Exception e) {
+            System.out.println("error:" + e.getMessage());
         }
+        Limpiar();
     }//GEN-LAST:event_bGuardarActionPerformed
 
 

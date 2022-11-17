@@ -142,9 +142,7 @@ public class Alta_Clientes extends javax.swing.JPanel {
             String ap_Pat = txtApelleidoP.getText();
             String ap_Mat = txtApellidoM.getText();
             String telefono = txtaNumT.getText();
-            if (true) {
-
-            }
+            
             if (!nombre.equals("") && !ap_Pat.equals("") && !ap_Mat.equals("") && !telefono.equals("")) {
                 if (v.ValidarCliente(nombre, ap_Pat, ap_Mat) == 0) {
                     JOptionPane.showMessageDialog(rootPane, "El cliente ya fue registrado!!");

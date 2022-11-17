@@ -4,18 +4,36 @@
  * and open the template in the editor.
  */
 package refaccionaria.Altas;
+
+import java.awt.Component;
+import java.sql.Connection;
+import refaccionaria.Acciones.Conexion;
 import refaccionaria.Acciones.Insert;
+import refaccionaria.Validaciones.ValidarC;
+
 /**
  *
  * @author jesanher
  */
 public class Alta_Empleado extends javax.swing.JPanel {
-
-    /**
-     * Creates new form Alta_Empleado
-     */
+    
+    Insert in = new Insert();
+    Connection conex;
+    ValidarC v = new ValidarC();
+    Conexion c = new Conexion();
+    private Component rootPane;
+    
     public Alta_Empleado() {
         initComponents();
+    }
+
+    public void Limpiar() {
+        txtNombre.setText("");
+        txtApellidoP.setText("");
+        txtApellidoM.setText("");
+        comboBStatus.removeAllItems();
+        txtTelefono.setText("");
+        txtTelefono.setText("");
     }
 
     /**
@@ -30,11 +48,12 @@ public class Alta_Empleado extends javax.swing.JPanel {
         txtNombre = new refaccionaria.swing.txtf.TextFielda();
         txtApellidoP = new refaccionaria.swing.txtf.TextFielda();
         txtApellidoM = new refaccionaria.swing.txtf.TextFielda();
-        textFielda5 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda6 = new refaccionaria.swing.txtf.TextFielda();
+        txtTelefono = new refaccionaria.swing.txtf.TextFielda();
+        txtCorreo = new refaccionaria.swing.txtf.TextFielda();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        comboBoxA1 = new refaccionaria.swing.txtf.ComboBoxA();
+        comboBStatus = new refaccionaria.swing.txtf.ComboBoxA();
+        Bcancelar = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 680));
@@ -45,9 +64,9 @@ public class Alta_Empleado extends javax.swing.JPanel {
 
         txtApellidoM.setLabelText("Apellido materno");
 
-        textFielda5.setLabelText("Numero Telefonico");
+        txtTelefono.setLabelText("Numero Telefonico");
 
-        textFielda6.setLabelText("Correo electronico");
+        txtCorreo.setLabelText("Correo electronico");
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -59,11 +78,27 @@ public class Alta_Empleado extends javax.swing.JPanel {
         jButton1.setForeground(new java.awt.Color(25, 25, 25));
         jButton1.setText("Guardar");
         jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        comboBoxA1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Empleado normal", "Encargado", " " }));
-        comboBoxA1.setSelectedIndex(-1);
-        comboBoxA1.setLabeText("Status del empleado");
+        comboBStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Empleado normal", "Encargado", " " }));
+        comboBStatus.setSelectedIndex(-1);
+        comboBStatus.setLabeText("Status del empleado");
+
+        Bcancelar.setBackground(new java.awt.Color(235, 47, 47));
+        Bcancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        Bcancelar.setForeground(new java.awt.Color(25, 25, 25));
+        Bcancelar.setText("Cancelar");
+        Bcancelar.setBorder(null);
+        Bcancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,10 +115,13 @@ public class Alta_Empleado extends javax.swing.JPanel {
                             .addComponent(txtApellidoM, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
                             .addComponent(txtApellidoP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textFielda5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textFielda6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxA1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboBStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,29 +133,46 @@ public class Alta_Empleado extends javax.swing.JPanel {
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(txtApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(comboBoxA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(textFielda5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(textFielda6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(comboBStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcancelarActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+    }//GEN-LAST:event_BcancelarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+        } catch (Exception e) {
+            System.out.println("error:" + e.getMessage());
+        }
+        Limpiar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private refaccionaria.swing.txtf.ComboBoxA comboBoxA1;
+    private javax.swing.JButton Bcancelar;
+    private refaccionaria.swing.txtf.ComboBoxA comboBStatus;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.swing.txtf.TextFielda textFielda5;
-    private refaccionaria.swing.txtf.TextFielda textFielda6;
     private refaccionaria.swing.txtf.TextFielda txtApellidoM;
     private refaccionaria.swing.txtf.TextFielda txtApellidoP;
+    private refaccionaria.swing.txtf.TextFielda txtCorreo;
     private refaccionaria.swing.txtf.TextFielda txtNombre;
+    private refaccionaria.swing.txtf.TextFielda txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
