@@ -1,7 +1,7 @@
 
 package refaccionaria.Altas;
 import refaccionaria.Acciones.Conexion;
-import refaccionaria.Acciones.Insert
+import refaccionaria.Acciones.Insert;
 
 
 public class Alta_Proveedor extends javax.swing.JPanel {

@@ -23,7 +23,7 @@ public class Insert {
     
     public boolean insertEmpleado(String nombre_Emp,String ap_Pat,String ap_Mat, int status_Empleado, String tel_Empleado, String correo){//metodo para insertar un proveedor
         //se prepara la insercion del dato de empleado
-        sql="insert into Empleado values('"+nombre_Emp+"','"+ap_Pat+"','"+ap_Mat+"',"+status_Empleado+",'"+tel_Empleado+"','"+correo+"');";
+        sql="Insert into Empleado(nombre_Emp, ap_Pat, ap_Mat, status_Empleado, tel_Empleado, correo) values ('"+nombre_Emp+"','"+ap_Pat+"','"+ap_Mat+"',"+status_Empleado+",'"+tel_Empleado+"','"+correo+"');;";
         respuesta=true;// nos devuelven el valor booleano despues de la insercion
         try{
             st=conex.createStatement();
