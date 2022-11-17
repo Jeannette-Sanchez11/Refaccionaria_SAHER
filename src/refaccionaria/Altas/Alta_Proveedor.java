@@ -1,21 +1,20 @@
-
 package refaccionaria.Altas;
+
 import refaccionaria.Acciones.Conexion;
 import refaccionaria.Acciones.Insert;
 
-
 public class Alta_Proveedor extends javax.swing.JPanel {
 
-    
     public Alta_Proveedor() {
         initComponents();
     }
 
-    public void Limpiar(){
+    public void Limpiar() {
         txtRFC.setText("");
         txtNombreP.setText("");
         txtTelefonoP.setText("");
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -114,7 +113,9 @@ public class Alta_Proveedor extends javax.swing.JPanel {
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
         // TODO add your handling code here:
-        
+        try {
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_bGuardarActionPerformed
 
 
