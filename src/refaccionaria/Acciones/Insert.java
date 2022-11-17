@@ -47,7 +47,7 @@ public class Insert {
     
     public boolean insertCliente(String nombre,String ap_Pat,String ap_Mat, String telefono){//metodo para insertar un cliente
         //se prepara la insercion del dato de proveedor
-        sql="insert into Cliente values('"+nombre+"','"+ap_Pat+"','"+ap_Mat+"','"+telefono+"');";
+        sql="insert into cliente (nombre,Ap_pat,Ap_mat,Telefono)  values('"+nombre+"','"+ap_Pat+"','"+ap_Mat+"','"+telefono+"');";
         respuesta=true;// nos devuelven el valor booleano despues de la insercion
         try{
             st=conex.createStatement();
