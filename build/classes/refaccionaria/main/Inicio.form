@@ -26,6 +26,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="hide" alignment="0" min="-2" pref="420" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
                       <Component id="usuarioTxt" min="-2" pref="270" max="-2" attributes="0"/>
@@ -38,9 +39,8 @@
                       <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
                       <Component id="ingresoB" min="-2" pref="297" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="hide" alignment="0" min="-2" pref="420" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="380" max="32767" attributes="0"/>
+              <EmptySpace pref="382" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,9 +96,8 @@
           <Font name="Roboto" size="11" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ingrese su usuario"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -109,7 +108,9 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="contraTxt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="******"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
