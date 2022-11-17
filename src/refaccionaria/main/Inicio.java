@@ -52,12 +52,11 @@ public class Inicio extends javax.swing.JFrame {
         );
 
         usuarioTxt.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        usuarioTxt.setForeground(new java.awt.Color(204, 204, 204));
-        usuarioTxt.setText("Ingrese su usuario");
+        usuarioTxt.setForeground(new java.awt.Color(0, 0, 0));
         usuarioTxt.setBorder(null);
         usuarioTxt.setPreferredSize(new java.awt.Dimension(55, 20));
 
-        contraTxt.setText("******");
+        contraTxt.setForeground(new java.awt.Color(0, 0, 0));
         contraTxt.setBorder(null);
 
         ingresoB.setBackground(new java.awt.Color(8, 12, 38));
@@ -87,6 +86,7 @@ public class Inicio extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hide, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(usuarioTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -95,9 +95,8 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(contraTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(ingresoB, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(hide, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(380, Short.MAX_VALUE))
+                        .addComponent(ingresoB, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
