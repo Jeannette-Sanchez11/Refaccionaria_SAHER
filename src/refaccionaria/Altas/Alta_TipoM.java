@@ -1,9 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package refaccionaria.Altas;
+
+import java.awt.Component;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Acciones.Insert;
+import refaccionaria.Validaciones.ValidarC;
 
 /**
  *
@@ -11,11 +13,21 @@ package refaccionaria.Altas;
  */
 public class Alta_TipoM extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Alta_TipoM
-     */
+    Insert in = new Insert();
+    Connection conex;
+    ValidarC v = new ValidarC();
+    Conexion c = new Conexion();
+    private Component rootPane;
+    
     public Alta_TipoM() {
         initComponents();
+    }
+
+    public void Limpiar() {
+        txtModelo.setText("");
+        txtTipo.setText("");
+        txtMarca.setText("");
+        txtAnio.setText("");
     }
 
     /**
@@ -28,11 +40,12 @@ public class Alta_TipoM extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda4 = new refaccionaria.swing.txtf.TextFielda();
-        jButton1 = new javax.swing.JButton();
+        txtModelo = new refaccionaria.swing.txtf.TextFielda();
+        txtTipo = new refaccionaria.swing.txtf.TextFielda();
+        txtMarca = new refaccionaria.swing.txtf.TextFielda();
+        txtAnio = new refaccionaria.swing.txtf.TextFielda();
+        bGuardar = new javax.swing.JButton();
+        Bcancelar = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -41,20 +54,36 @@ public class Alta_TipoM extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TipoM.png"))); // NOI18N
         jLabel1.setText("Tipo de moto");
 
-        textFielda1.setLabelText("Modelo");
+        txtModelo.setLabelText("Modelo");
 
-        textFielda2.setLabelText("Nombre del tipo de moto");
+        txtTipo.setLabelText("Categoria del tipo de moto");
 
-        textFielda3.setLabelText("Marca");
+        txtMarca.setLabelText("Marca");
 
-        textFielda4.setLabelText("Año de la motocicleta");
+        txtAnio.setLabelText("Año de la motocicleta");
 
-        jButton1.setBackground(new java.awt.Color(44, 203, 87));
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(25, 25, 25));
-        jButton1.setText("Guardar");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bGuardar.setBackground(new java.awt.Color(44, 203, 87));
+        bGuardar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        bGuardar.setForeground(new java.awt.Color(25, 25, 25));
+        bGuardar.setText("Guardar");
+        bGuardar.setBorder(null);
+        bGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarActionPerformed(evt);
+            }
+        });
+
+        Bcancelar.setBackground(new java.awt.Color(235, 47, 47));
+        Bcancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        Bcancelar.setForeground(new java.awt.Color(25, 25, 25));
+        Bcancelar.setText("Cancelar");
+        Bcancelar.setBorder(null);
+        Bcancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,13 +96,15 @@ public class Alta_TipoM extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textFielda4, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,26 +113,63 @@ public class Alta_TipoM extends javax.swing.JPanel {
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
                 .addGap(44, 44, 44)
-                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(textFielda4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcancelarActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+    }//GEN-LAST:event_BcancelarActionPerformed
+
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        // TODO add your handling code here:
+        try {
+            String modelo = txtModelo.getText();
+            String nombre_TipoM = txtTipo.getText();
+            String marca = txtMarca.getText();
+            String anioT = txtAnio.getText();
+            //int anio = Integer.parseInt(txtAnio.getText());
+
+            if(!modelo.equals("") && !nombre_TipoM.equals("") && !marca.equals("") && !anioT.equals("")){
+                int anio =Integer.parseInt(anioT);
+                if(v.ValidarTipoM(modelo, nombre_TipoM, marca, anio) == 0){
+                    JOptionPane.showMessageDialog(rootPane, "El tipo de moto ya fue registrado!!");
+                }else{
+                    if (in.insertTipoDeMoto(modelo, nombre_TipoM, marca, anio)) {
+                        JOptionPane.showMessageDialog(rootPane, "Registro exitoso!!");
+                    }else {
+                        JOptionPane.showMessageDialog(rootPane, "Registro fallido");
+                    }
+                }
+            }else {
+                JOptionPane.showMessageDialog(rootPane, "Favor de ingresar todos datos!!!!");
+            }
+        } catch (Exception e) {
+            System.out.println("error:" + e.getMessage());
+        }
+        Limpiar();
+    }//GEN-LAST:event_bGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Bcancelar;
+    private javax.swing.JButton bGuardar;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
-    private refaccionaria.swing.txtf.TextFielda textFielda2;
-    private refaccionaria.swing.txtf.TextFielda textFielda3;
-    private refaccionaria.swing.txtf.TextFielda textFielda4;
+    private refaccionaria.swing.txtf.TextFielda txtAnio;
+    private refaccionaria.swing.txtf.TextFielda txtMarca;
+    private refaccionaria.swing.txtf.TextFielda txtModelo;
+    private refaccionaria.swing.txtf.TextFielda txtTipo;
     // End of variables declaration//GEN-END:variables
 }
