@@ -37,15 +37,15 @@ public class Menu extends JPanel {
         addTitle("Seccion 1");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Proveedores","Agregar Proveedor", "Mostrar Proveedores", "Actualizar Proveedor", "Eliminar Proveedor"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EXPOSURE, "Productos","Agregar Producto","Mostrar Productos","Actualizar Producto","Eliminar Producto"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DIRECTIONS_BIKE, "Tipo de moto","Alta","Lista","Eliminar","Actualizzar"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS_REMOTE, "Servicios","Alta","Lista","Eliminar","Actualizzar"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DIRECTIONS_BIKE, "Tipo de moto","Agregar tipo","Mostrar tipo","Actualizar tipo","Eliminar tipo"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS_REMOTE, "Servicios","Agregar servicio","Mostrar servicios","Actualizar servicio","Eliminar servicio"));
         addTitle("Seccion 2");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MONETIZATION_ON, "Venta",  "Alta", "Buscar", "Actualizar"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.BUSINESS_CENTER, "Compra",  "Alta", "Buscar", "Actualizar"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Clientes", "Alta", "Buscar", "Actualizar", "Eliminar"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MONETIZATION_ON, "Venta",  "Nueva Venta", "Buscar Venta", "Actualizar"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.BUSINESS_CENTER, "Compra",  "Nueva compra", "Buscar compra", "Actualizar"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Clientes", "Agregar Cliente", "Mostrar Cliente", "Actualizar Cliente", "Eliminar Cliente"));
         addTitle("Seccion 3");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.TAB, "Usuarios",  "Alta", "Buscar", "Actualizar", "Eliminar"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Empleados", "Alta", "Buscar", "Actualizar", "Eliminar"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.TAB, "Usuarios",  "Agregar Usuario", "Mostrar Usuario", "Actualizar Usuario", "Eliminar Usuario"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Empleados", "Agregar Empleado", "Mostar Empleado", "Actualizar Empleado", "Eliminar Empleado"));
     }
 
     private JScrollPane createScroll() {

@@ -51,7 +51,7 @@ public class ComboBoxA<E> extends JComboBox<E> {
                 Component com = super.getListCellRendererComponent(jlist, o, i, bln, bln1);
                 setBorder(new EmptyBorder(5, 5, 5, 5));
                 if (bln) {
-                    com.setBackground(new Color(240, 240, 240));
+                    com.setBackground(new Color(210, 210, 210));
                 }
                 return com;
             }
@@ -155,10 +155,10 @@ public class ComboBoxA<E> extends JComboBox<E> {
                 protected JScrollPane createScroller() {
                     list.setFixedCellHeight(30);
                     JScrollPane scroll = new JScrollPane(list);
-                    scroll.setBackground(Color.WHITE);
+                    scroll.setBackground(Color.black);
                     ScrollBar sb = new ScrollBar();
                     sb.setUnitIncrement(30);
-                    sb.setForeground(new Color(180, 180, 180));
+                    sb.setForeground(new Color(130, 130, 130));
                     scroll.setVerticalScrollBar(sb);
                     return scroll;
                 }

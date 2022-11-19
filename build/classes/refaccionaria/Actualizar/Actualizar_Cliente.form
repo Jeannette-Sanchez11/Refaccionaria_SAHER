@@ -25,24 +25,32 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="380" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="textFielda4" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
-                          <Component id="textFielda3" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
-                          <Component id="textFielda2" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
-                          <Component id="textFielda1" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
-                          <Component id="textFielda5" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
-                          <Component id="bActualizar" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="textFieldTel" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Component id="textFieldAp_Mat" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Component id="textFieldAp_Pat" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Component id="textFieldID" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Component id="textFieldNombre" alignment="1" min="-2" pref="465" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="bActualizar" min="-2" pref="166" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Bcancelar" min="-2" pref="166" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="Buscar" min="-2" pref="166" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="Buscar" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,22 +59,30 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-              <Component id="textFielda1" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Component id="textFieldID" min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="textFielda5" min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="textFieldNombre" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="Buscar" min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="textFieldAp_Pat" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="textFieldAp_Mat" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="textFielda2" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="textFielda3" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="textFielda4" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
-              <Component id="bActualizar" min="-2" pref="44" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="textFieldTel" min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bActualizar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="Bcancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,30 +99,30 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagenes/cliente.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clientes"/>
+        <Property name="text" type="java.lang.String" value="Actualizar Clientes"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldID">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Id del cliente"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldAp_Pat">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Apellid Paterno"/>
+        <Property name="labelText" type="java.lang.String" value="Apellido Paterno"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldAp_Mat">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Apellido materno"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldTel">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Numero Telefonico"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda5">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldNombre">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del cliente"/>
       </Properties>
@@ -130,6 +146,9 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bActualizarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Buscar">
       <Properties>
@@ -150,6 +169,40 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ingrese el nombre completo del cliente "/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Para poder buscar y actualizar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Bcancelar">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2f" green="2f" red="eb" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto" size="14" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="19" green="19" red="19" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BcancelarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -28,7 +28,7 @@ public class Table extends JTable {
             @Override
             public Component getTableCellRendererComponent(JTable jtable, Object o, boolean selected, boolean bln1, int i, int i1) {
                 Component com = super.getTableCellRendererComponent(jtable, o, selected, bln1, i, i1);
-                com.setBackground(Color.WHITE);
+                com.setBackground(Color.white);
                 setBorder(noFocusBorder);
                 if (selected) {
                     com.setForeground(SystemColor.MAIN_COLOR_1);

@@ -38,7 +38,7 @@
                           <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
                           <Component id="comboBStatus" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
+                              <Component id="bGuardar" min="-2" pref="166" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="Bcancelar" min="-2" pref="166" max="-2" attributes="0"/>
                           </Group>
@@ -60,15 +60,15 @@
               <Component id="txtApellidoP" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="txtApellidoM" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="comboBStatus" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Component id="txtTelefono" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="txtCorreo" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="bGuardar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="Bcancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -116,7 +116,7 @@
         <Property name="text" type="java.lang.String" value="Guardar Empleado"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="bGuardar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="57" green="cb" red="2c" type="rgb"/>
@@ -132,20 +132,19 @@
           <Border info="null"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGuardarActionPerformed"/>
       </Events>
     </Component>
     <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboBStatus">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="2">
             <StringItem index="0" value="Empleado normal"/>
             <StringItem index="1" value="Encargado"/>
-            <StringItem index="2" value=" "/>
           </StringArray>
         </Property>
         <Property name="selectedIndex" type="int" value="-1"/>

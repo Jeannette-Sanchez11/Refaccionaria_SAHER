@@ -37,52 +37,50 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="textFielda1" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                                          <Component id="textFielda3" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
-                                          <Component id="textFielda5" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jButton3" min="-2" pref="166" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="textFielda2" min="-2" pref="167" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                          <Component id="jButton2" min="-2" pref="166" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="textFielda6" min="-2" pref="166" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                          <Component id="Fecha_compra" min="-2" pref="130" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="textFielda7" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jButton1" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="jButton4" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="roundPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="bGuardar" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                              <Component id="jButton4" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="comboProveedor" pref="205" max="32767" attributes="0"/>
+                                              <Component id="txtCodigoB" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtCantidad" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                                              <Component id="txtPrecioC" alignment="1" min="-2" pref="204" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="469" max="-2" attributes="0"/>
+                                          <Component id="Fecha_compra" min="-2" pref="130" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="bAnadir" min="-2" pref="166" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="textFielda4" min="-2" pref="167" max="-2" attributes="0"/>
+              <Component id="txtMontoF" min="-2" pref="167" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -92,42 +90,35 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textFielda1" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="textFielda6" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="Fecha_compra" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="comboProveedor" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="Fecha_compra" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtCodigoB" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="bAnadir" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="textFielda2" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="textFielda7" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="textFielda3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="txtCantidad" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="bGuardar" min="-2" pref="44" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton4" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="textFielda5" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="txtPrecioC" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="roundPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="textFielda4" min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="txtMontoF" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -140,17 +131,17 @@
         <Property name="labelText" type="java.lang.String" value="Fecha"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtCodigoB">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Codigo de barras"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtCantidad">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Cantidad"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtMontoF">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Monto final"/>
       </Properties>
@@ -172,7 +163,12 @@
     <Container class="refaccionaria.swing.RoundPanel" name="roundPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="bc" green="bc" red="bc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+            <EmptyBorder bottom="5" left="5" right="5" top="5"/>
+          </Border>
         </Property>
         <Property name="round" type="int" value="10"/>
       </Properties>
@@ -191,7 +187,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="323" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="316" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -213,16 +209,22 @@
                   </Border>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="6" rowCount="0">
                     <Column editable="false" title="# " type="java.lang.Object"/>
-                    <Column editable="false" title="Producto" type="java.lang.Object"/>
-                    <Column editable="false" title="Precio de compra" type="java.lang.Object"/>
+                    <Column editable="false" title="Codigo barras" type="java.lang.Object"/>
+                    <Column editable="false" title="Nombre" type="java.lang.Object"/>
+                    <Column editable="false" title="Precio_compra" type="java.lang.Object"/>
                     <Column editable="false" title="Cantidad" type="java.lang.Object"/>
-                    <Column editable="false" title="Monto profucto" type="java.lang.Object"/>
+                    <Column editable="false" title="Total por articulo" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -259,7 +261,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="bGuardar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="57" green="cb" red="2c" type="rgb"/>
@@ -278,8 +280,11 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGuardarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="bAnadir">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="bd" red="20" type="rgb"/>
@@ -298,45 +303,13 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAnadirActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
-      <Properties>
-        <Property name="labelText" type="java.lang.String" value="RFC del proveedor"/>
-      </Properties>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda5">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtPrecioC">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Precio de compra"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cb" green="fe" red="a5" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto" size="14" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="19" green="19" red="19" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Buscar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda6">
-      <Properties>
-        <Property name="labelText" type="java.lang.String" value="Nombre del proveedor"/>
-      </Properties>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda7">
-      <Properties>
-        <Property name="labelText" type="java.lang.String" value="Nombre del producto"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
@@ -355,6 +328,22 @@
           <Border info="null"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboProveedor">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Seleccione el Proveedor"/>
+          </StringArray>
+        </Property>
+        <Property name="labeText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboProveedorActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

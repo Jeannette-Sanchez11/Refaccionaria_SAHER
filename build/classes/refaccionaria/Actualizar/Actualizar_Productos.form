@@ -22,53 +22,60 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="385" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="bActualizar" min="-2" pref="166" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="bActualizar" min="-2" pref="166" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                      <Component id="Bcancelar" min="-2" pref="166" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="textFielda1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="textFielda3" alignment="0" max="32767" attributes="0"/>
-                      <Component id="textFielda4" alignment="0" max="32767" attributes="0"/>
-                      <Component id="textFielda5" alignment="0" max="32767" attributes="0"/>
-                      <Component id="textFielda6" alignment="0" max="32767" attributes="0"/>
-                      <Component id="textFielda2" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
+                      <Component id="textFieldCodi_Barra" alignment="0" pref="465" max="32767" attributes="0"/>
+                      <Component id="textFieldNombre_Art" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textFieldMarca" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textFieldPrecio" alignment="0" max="32767" attributes="0"/>
+                      <Component id="textFieldStock" alignment="0" max="32767" attributes="0"/>
+                      <Component id="comboTipo" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="69" max="32767" attributes="0"/>
               <Component id="bBuscar" min="-2" pref="166" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="textFielda1" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="textFieldCodi_Barra" min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="bBuscar" min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="comboTipo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="textFieldNombre_Art" min="-2" pref="42" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda2" min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="textFieldMarca" min="-2" pref="42" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda3" min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="textFieldPrecio" min="-2" pref="42" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda4" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda5" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda6" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
-              <Component id="bActualizar" min="-2" pref="44" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="textFieldStock" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bActualizar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="Bcancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,35 +89,30 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Productos"/>
+        <Property name="text" type="java.lang.String" value="Actualizar Productos"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldCodi_Barra">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Codigo de barras"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
-      <Properties>
-        <Property name="labelText" type="java.lang.String" value="Tipo de moto"/>
-      </Properties>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldNombre_Art">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del articulo"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldMarca">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Marca"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda5">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldPrecio">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Precio"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda6">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldStock">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Stock"/>
       </Properties>
@@ -134,6 +136,9 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bBuscarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bActualizar">
       <Properties>
@@ -154,6 +159,42 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bActualizarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Bcancelar">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2f" green="2f" red="eb" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto" size="14" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="19" green="19" red="19" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BcancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboTipo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Seleccione"/>
+          </StringArray>
+        </Property>
+        <Property name="labeText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboTipoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
