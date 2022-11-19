@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package refaccionaria.buscar;
+
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+import refaccionaria.Acciones.Conexion;
 
 /**
  *
@@ -11,11 +10,46 @@ package refaccionaria.buscar;
  */
 public class Buscar_Usuario extends javax.swing.JPanel {
 
+    PreparedStatement ps;
+    ResultSet rs;
+    Connection conex;
+    Conexion c = new Conexion();
+
     /**
      * Creates new form Buscar_Usuario
      */
     public Buscar_Usuario() {
         initComponents();
+        init();
+        conex = c.ConectarBD();
+        mostrar_datos();
+    }
+    public void init(){
+        tablaUs.fixTable(jScrollPane1);
+    }
+    
+     public void mostrar_datos() {
+         try {
+            DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
+            tablaUs.setModel(modelo);
+            String sql = "select id_usuario, nombre_usuario from usuarios order by id_usuario;";
+            System.out.println(sql);
+            ps = conex.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadC = rsMd.getColumnCount();
+            modelo.addColumn("ID ");
+            modelo.addColumn("Nombre usuario");            
+            while (rs.next()) {
+                Object[] filas = new Object[cantidadC];
+                for (int i = 0; i < cantidadC; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
     }
 
     /**
@@ -27,21 +61,22 @@ public class Buscar_Usuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        txtUsuario = new refaccionaria.swing.txtf.TextFielda();
         roundPanel1 = new refaccionaria.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new refaccionaria.swing.table.Table();
-        jButton1 = new javax.swing.JButton();
+        tablaUs = new refaccionaria.swing.table.Table();
+        bBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
 
-        textFielda1.setLabelText("Nombre del usuario");
+        txtUsuario.setLabelText("Nombre del usuario");
 
-        roundPanel1.setBackground(new java.awt.Color(188, 188, 188));
+        roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaUs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -57,7 +92,7 @@ public class Buscar_Usuario extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(table1);
+        jScrollPane1.setViewportView(tablaUs);
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -76,17 +111,22 @@ public class Buscar_Usuario extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(165, 254, 203));
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(25, 25, 25));
-        jButton1.setText("Buscar");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bBuscar.setBackground(new java.awt.Color(165, 254, 203));
+        bBuscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        bBuscar.setForeground(new java.awt.Color(25, 25, 25));
+        bBuscar.setText("Buscar");
+        bBuscar.setBorder(null);
+        bBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
-        jLabel1.setText(" Usuarios");
+        jLabel1.setText(" Mostrar Usuarios");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -95,17 +135,15 @@ public class Buscar_Usuario extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(358, 358, 358)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 369, Short.MAX_VALUE))
-                    .addComponent(roundPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(358, 358, 358)
+                        .addComponent(jLabel1)
+                        .addGap(0, 302, Short.MAX_VALUE))
+                    .addComponent(roundPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -113,23 +151,49 @@ public class Buscar_Usuario extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFielda1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(bBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
+        // TODO add your handling code here:
+        try {
+            String usuario= txtUsuario.getText();
+            DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
+            tablaUs.setModel(modelo);
+            String sql = "select id_usuario, nombre_usuario from usuarios where nombre_usuario='"+usuario+"';";
+            System.out.println(sql);
+            ps = conex.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadC = rsMd.getColumnCount();
+            modelo.addColumn("ID ");
+            modelo.addColumn("Nombre usuario");            
+            while (rs.next()) {
+                Object[] filas = new Object[cantidadC];
+                for (int i = 0; i < cantidadC; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }//GEN-LAST:event_bBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private refaccionaria.swing.RoundPanel roundPanel1;
-    private refaccionaria.swing.table.Table table1;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.table.Table tablaUs;
+    private refaccionaria.swing.txtf.TextFielda txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

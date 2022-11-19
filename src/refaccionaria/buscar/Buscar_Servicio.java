@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package refaccionaria.buscar;
+
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+import refaccionaria.Acciones.Conexion;
 
 /**
  *
@@ -11,11 +10,49 @@ package refaccionaria.buscar;
  */
 public class Buscar_Servicio extends javax.swing.JPanel {
 
+    PreparedStatement ps;
+    ResultSet rs;
+    Connection conex;
+    Conexion c = new Conexion();
+
     /**
      * Creates new form Buscar_Cliente
      */
     public Buscar_Servicio() {
         initComponents();
+        init();
+        conex = c.ConectarBD();
+        mostrar_datos();
+    }
+    
+    public void init(){
+        tabla_servicios.fixTable(jScrollPane1);
+    }
+
+    public void mostrar_datos() {
+         try {
+            DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
+            tabla_servicios.setModel(modelo);
+            String sql = "  select * from servicios order by id_servi;";
+            System.out.println(sql);
+            ps = conex.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadC = rsMd.getColumnCount();
+            modelo.addColumn("ID servicio");
+            modelo.addColumn("Descripcion");
+            modelo.addColumn("Precio");
+            while (rs.next()) {
+                Object[] filas = new Object[cantidadC];
+                for (int i = 0; i < cantidadC; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
     }
 
     /**
@@ -28,10 +65,10 @@ public class Buscar_Servicio extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
+        txtDescripcion = new refaccionaria.swing.txtf.TextFielda();
         roundPanel1 = new refaccionaria.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new refaccionaria.swing.table.Table();
+        tabla_servicios = new refaccionaria.swing.table.Table();
         jButton1 = new javax.swing.JButton();
 
         setOpaque(false);
@@ -39,14 +76,15 @@ public class Buscar_Servicio extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/servicios.png"))); // NOI18N
-        jLabel1.setText("Servicios");
+        jLabel1.setText("Mostrar Servicios");
 
-        textFielda1.setLabelText("Descripcion del Servicio");
+        txtDescripcion.setLabelText("Descripcion del Servicio");
 
-        roundPanel1.setBackground(new java.awt.Color(188, 188, 188));
+        roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_servicios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -62,7 +100,7 @@ public class Buscar_Servicio extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(table1);
+        jScrollPane1.setViewportView(tabla_servicios);
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -87,40 +125,75 @@ public class Buscar_Servicio extends javax.swing.JPanel {
         jButton1.setText("Buscar");
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(387, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(376, 376, 376))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 285, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(376, 376, 376))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(textFielda1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         try {
+             String descripcion= txtDescripcion.getText();
+            DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
+            tabla_servicios.setModel(modelo);
+            String sql = "  select * from servicios where descripcion='"+descripcion+"'";
+            System.out.println(sql);
+            ps = conex.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadC = rsMd.getColumnCount();
+            modelo.addColumn("ID servicio");
+            modelo.addColumn("Descripcion");
+            modelo.addColumn("Precio");
+            while (rs.next()) {
+                Object[] filas = new Object[cantidadC];
+                for (int i = 0; i < cantidadC; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -128,7 +201,7 @@ public class Buscar_Servicio extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private refaccionaria.swing.RoundPanel roundPanel1;
-    private refaccionaria.swing.table.Table table1;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.table.Table tabla_servicios;
+    private refaccionaria.swing.txtf.TextFielda txtDescripcion;
     // End of variables declaration//GEN-END:variables
 }

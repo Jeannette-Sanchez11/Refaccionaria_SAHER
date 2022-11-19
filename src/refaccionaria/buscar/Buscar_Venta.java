@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package refaccionaria.buscar;
+
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+import refaccionaria.Acciones.Conexion;
 
 /**
  *
@@ -11,11 +10,52 @@ package refaccionaria.buscar;
  */
 public class Buscar_Venta extends javax.swing.JPanel {
 
+    PreparedStatement ps;
+    ResultSet rs;
+    Connection conex;
+    Conexion c = new Conexion();
+
     /**
      * Creates new form Buscar_Venta
      */
     public Buscar_Venta() {
         initComponents();
+        init();
+        conex = c.ConectarBD();
+        mostrar_datos();
+    }
+    
+    public void init(){
+        tablaV.fixTable(jScrollPane1);
+    }
+    
+    public void mostrar_datos() {
+         try {
+            DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
+            tablaV.setModel(modelo);
+            String sql = "select v.id_Ventas, cl.nombre, cl.ap_Pat,  cl.ap_Mat, em.nombre_Emp, v.fecha_Venta, v.monto_Final from venta v inner join cliente cl  on v.id_Cliente = cl.id_Cliente inner join empleado em on v.id_Emp = em.id_Emp order by v.id_Ventas;";
+            System.out.println(sql);
+            ps = conex.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadC = rsMd.getColumnCount();
+            modelo.addColumn("ID ");
+            modelo.addColumn("Cliente");
+            modelo.addColumn("Apellido Paterno");
+            modelo.addColumn("Apellido Materno");
+            modelo.addColumn("Empleado ");
+            modelo.addColumn("Fecha");
+            modelo.addColumn("Monto Total");
+            while (rs.next()) {
+                Object[] filas = new Object[cantidadC];
+                for (int i = 0; i < cantidadC; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
     }
 
     /**
@@ -27,29 +67,34 @@ public class Buscar_Venta extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
         roundPanel1 = new refaccionaria.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new refaccionaria.swing.table.Table();
-        jButton1 = new javax.swing.JButton();
+        tablaV = new refaccionaria.swing.table.Table();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
 
-        textFielda1.setLabelText("ID de la venta");
-
-        roundPanel1.setBackground(new java.awt.Color(188, 188, 188));
+        roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID Venta", "Cliente", "Empleado", "Fecha", "Monto total"
+                "ID Venta", "Cliente", "Apellido Paterno", "Apellido Materno", "Empleado", "Fecha", "Monto total"
             }
-        ));
-        jScrollPane1.setViewportView(table1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaV);
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -68,13 +113,6 @@ public class Buscar_Venta extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(165, 254, 203));
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(25, 25, 25));
-        jButton1.setText("Buscar");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Vender.png"))); // NOI18N
@@ -84,31 +122,23 @@ public class Buscar_Venta extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(361, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(347, 347, 347))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 349, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(347, 347, 347))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -116,11 +146,9 @@ public class Buscar_Venta extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private refaccionaria.swing.RoundPanel roundPanel1;
-    private refaccionaria.swing.table.Table table1;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
+    private refaccionaria.swing.table.Table tablaV;
     // End of variables declaration//GEN-END:variables
 }

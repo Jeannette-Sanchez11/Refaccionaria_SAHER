@@ -30,17 +30,20 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="txtCodigo" alignment="0" pref="465" max="32767" attributes="0"/>
-                          <Component id="textFielda3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textFielda4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textFielda5" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textFielda6" alignment="0" max="32767" attributes="0"/>
-                          <Component id="comboBoxA1" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" pref="166" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="Bcancelar" min="-2" pref="166" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtCodigo" alignment="0" pref="465" max="32767" attributes="0"/>
+                              <Component id="txtNombreA" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtMarca" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtPrecio" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtStock" alignment="0" max="32767" attributes="0"/>
+                              <Component id="comboTipo" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="bGuardar" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="Bcancelar" min="-2" pref="166" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -56,19 +59,21 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="txtCodigo" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="comboBoxA1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Component id="comboTipo" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="textFielda3" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="txtNombreA" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda4" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="txtMarca" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda5" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="txtPrecio" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="textFielda6" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <Component id="txtStock" min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="bGuardar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="Bcancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -82,22 +87,22 @@
         <Property name="labelText" type="java.lang.String" value="Codigo de barras"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtNombreA">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Nombre del articulo"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtMarca">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Marca"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda5">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtPrecio">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Precio"/>
       </Properties>
     </Component>
-    <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda6">
+    <Component class="refaccionaria.swing.txtf.TextFielda" name="txtStock">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Stock"/>
       </Properties>
@@ -113,7 +118,7 @@
         <Property name="text" type="java.lang.String" value="Guardar Productos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="bGuardar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="57" green="cb" red="2c" type="rgb"/>
@@ -129,20 +134,25 @@
           <Border info="null"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGuardarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboBoxA1">
+    <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboTipo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
-            <StringItem index="0" value="eee"/>
+            <StringItem index="0" value="Seleccione"/>
           </StringArray>
         </Property>
-        <Property name="selectedIndex" type="int" value="-1"/>
-        <Property name="labeText" type="java.lang.String" value="Tipo de moto"/>
+        <Property name="labeText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboTipoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Bcancelar">
       <Properties>
@@ -163,6 +173,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BcancelarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Modelo de la moto:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

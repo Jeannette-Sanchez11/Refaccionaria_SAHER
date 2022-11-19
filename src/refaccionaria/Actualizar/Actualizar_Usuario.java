@@ -5,6 +5,14 @@
  */
 package refaccionaria.Actualizar;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Acciones.Update;
+
 /**
  *
  * @author jesanher
@@ -18,6 +26,37 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void RellenotxtUsuario() {
+        String nombre = textFieldNombre.getText();
+        System.out.println("" + nombre);
+        String sql = "Select * from usuarios where nombre_usuario='" + nombre + "'";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.ConectarBD();
+
+        System.out.println(sql);
+        try {
+            st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            System.out.println(sql);
+
+            while (rs.next()) {
+                textFieldId.setText(rs.getString(1));
+                textFieldContra.setText(rs.getString(3));
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.toString());
+        }
+    }
+
+    public void LimpiarUsuarioTxt() {
+        textFieldId.setText("");
+        textFieldNombre.setText("");
+        textFieldContra.setText("");
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,11 +67,12 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
+        textFieldNombre = new refaccionaria.swing.txtf.TextFielda();
+        textFieldId = new refaccionaria.swing.txtf.TextFielda();
         bBuscar = new javax.swing.JButton();
         bActualizar = new javax.swing.JButton();
+        textFieldContra = new refaccionaria.swing.txtf.Password();
+        Bcancelar = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -41,16 +81,9 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
         jLabel1.setText("Usuarios");
 
-        textFielda1.setLabelText("Nombre de usuario");
+        textFieldNombre.setLabelText("Nombre de usuario");
 
-        textFielda2.setLabelText("Contraseña");
-        textFielda2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFielda2ActionPerformed(evt);
-            }
-        });
-
-        textFielda3.setLabelText("ID de usuario");
+        textFieldId.setLabelText("ID de usuario");
 
         bBuscar.setBackground(new java.awt.Color(165, 254, 203));
         bBuscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -58,6 +91,11 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
         bBuscar.setText("Buscar");
         bBuscar.setBorder(null);
         bBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarActionPerformed(evt);
+            }
+        });
 
         bActualizar.setBackground(new java.awt.Color(32, 189, 255));
         bActualizar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -65,6 +103,26 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
         bActualizar.setText("Actualizar");
         bActualizar.setBorder(null);
         bActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActualizarActionPerformed(evt);
+            }
+        });
+
+        textFieldContra.setBackground(new java.awt.Color(61, 61, 61));
+        textFieldContra.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldContra.setLabelText("Contraseña");
+
+        Bcancelar.setBackground(new java.awt.Color(235, 47, 47));
+        Bcancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        Bcancelar.setForeground(new java.awt.Color(25, 25, 25));
+        Bcancelar.setText("Cancelar");
+        Bcancelar.setBorder(null);
+        Bcancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,12 +134,14 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(160, 160, 160)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textFielda1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFielda3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(textFieldNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                    .addComponent(textFieldId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldContra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
@@ -92,30 +152,54 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
                 .addGap(44, 44, 44)
-                .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
-                .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(58, 58, 58)
+                .addComponent(textFieldContra, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textFielda2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFielda2ActionPerformed
+    Update update = new Update();
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFielda2ActionPerformed
+        RellenotxtUsuario();
+    }//GEN-LAST:event_bBuscarActionPerformed
+
+    private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
+        // TODO add your handling code here:
+        if (!"".equals(textFieldContra.getText()) || !"".equals(textFieldId.getText())
+                || !"".equals(textFieldNombre.getText())) {
+
+            update.updateUsuarios(Integer.parseInt(textFieldId.getText()), textFieldNombre.getText(), textFieldContra.getText());
+            LimpiarUsuarioTxt();
+
+            JOptionPane.showMessageDialog(null, "Usuario actualizado!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+        }
+    }//GEN-LAST:event_bActualizarActionPerformed
+
+    private void BcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcancelarActionPerformed
+        // TODO add your handling code here:
+        LimpiarUsuarioTxt();
+    }//GEN-LAST:event_BcancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bcancelar;
     private javax.swing.JButton bActualizar;
     private javax.swing.JButton bBuscar;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
-    private refaccionaria.swing.txtf.TextFielda textFielda2;
-    private refaccionaria.swing.txtf.TextFielda textFielda3;
+    private refaccionaria.swing.txtf.Password textFieldContra;
+    private refaccionaria.swing.txtf.TextFielda textFieldId;
+    private refaccionaria.swing.txtf.TextFielda textFieldNombre;
     // End of variables declaration//GEN-END:variables
 }

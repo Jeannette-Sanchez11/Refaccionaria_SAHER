@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package refaccionaria.Actualizar;
 
-/**
- *
- * @author jesanher
- */
+import java.sql.*;
+import javax.swing.*;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Acciones.Update;
+
 public class Actualizar_Cliente extends javax.swing.JPanel {
 
     /**
@@ -16,6 +13,41 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
      */
     public Actualizar_Cliente() {
         initComponents();
+    }
+
+    public void LimpiarClienteTxt() {
+        textFieldNombre.setText("");
+        textFieldID.setText("");
+        textFieldAp_Mat.setText("");
+        textFieldAp_Pat.setText("");
+        textFieldTel.setText("");
+
+    }
+
+    public void RellenotxtCliente() {
+        String nombre = textFieldNombre.getText();
+        System.out.println("" + nombre);
+        String sql = "Select * from Cliente where nombre='" + nombre + "'";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.ConectarBD();
+
+        System.out.println(sql);
+        try {
+            st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            System.out.println(sql);
+
+            while (rs.next()) {
+                textFieldID.setText(rs.getString(1));
+                textFieldAp_Pat.setText(rs.getString(3));
+                textFieldAp_Mat.setText(rs.getString(4));
+                textFieldTel.setText(rs.getString(5));
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.toString());
+        }
     }
 
     /**
@@ -28,13 +60,16 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda4 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda5 = new refaccionaria.swing.txtf.TextFielda();
+        textFieldID = new refaccionaria.swing.txtf.TextFielda();
+        textFieldAp_Pat = new refaccionaria.swing.txtf.TextFielda();
+        textFieldAp_Mat = new refaccionaria.swing.txtf.TextFielda();
+        textFieldTel = new refaccionaria.swing.txtf.TextFielda();
+        textFieldNombre = new refaccionaria.swing.txtf.TextFielda();
         bActualizar = new javax.swing.JButton();
         Buscar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        Bcancelar = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 680));
@@ -42,17 +77,17 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cliente.png"))); // NOI18N
-        jLabel1.setText("Clientes");
+        jLabel1.setText("Actualizar Clientes");
 
-        textFielda1.setLabelText("Id del cliente");
+        textFieldID.setLabelText("Id del cliente");
 
-        textFielda2.setLabelText("Apellid Paterno");
+        textFieldAp_Pat.setLabelText("Apellido Paterno");
 
-        textFielda3.setLabelText("Apellido materno");
+        textFieldAp_Mat.setLabelText("Apellido materno");
 
-        textFielda4.setLabelText("Numero Telefonico");
+        textFieldTel.setLabelText("Numero Telefonico");
 
-        textFielda5.setLabelText("Nombre del cliente");
+        textFieldNombre.setLabelText("Nombre del cliente");
 
         bActualizar.setBackground(new java.awt.Color(32, 189, 255));
         bActualizar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -60,6 +95,11 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
         bActualizar.setText("Actualizar");
         bActualizar.setBorder(null);
         bActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActualizarActionPerformed(evt);
+            }
+        });
 
         Buscar.setBackground(new java.awt.Color(165, 254, 203));
         Buscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -67,6 +107,27 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
         Buscar.setText("Buscar");
         Buscar.setBorder(null);
         Buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Ingrese el nombre completo del cliente ");
+        jLabel2.setToolTipText("");
+
+        jLabel3.setText("Para poder buscar y actualizar");
+
+        Bcancelar.setBackground(new java.awt.Color(235, 47, 47));
+        Bcancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        Bcancelar.setForeground(new java.awt.Color(25, 25, 25));
+        Bcancelar.setText("Cancelar");
+        Bcancelar.setBorder(null);
+        Bcancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,53 +136,94 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(380, 380, 380)
+                        .addGap(308, 308, 308)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textFielda4, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFielda5, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(textFieldTel, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldAp_Mat, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldAp_Pat, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(54, 54, 54)
-                        .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addGap(56, 56, 56)
-                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(59, 59, 59)
+                .addComponent(textFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFielda5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(textFieldAp_Pat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(textFieldAp_Mat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(textFielda4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addComponent(textFieldTel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
+        Update update = new Update();
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        RellenotxtCliente();
+    }//GEN-LAST:event_BuscarActionPerformed
+
+    private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
+        // TODO add your handling code here:
+        if(!"".equals(textFieldID.getText())|| !"".equals(textFieldNombre.getText())
+            || !"".equals(textFieldAp_Pat.getText())
+            || !"".equals(textFieldAp_Mat.getText())| !"".equals(textFieldTel.getText())){
+
+            update.updateCliente(textFieldID.getText(),textFieldNombre.getText(), textFieldAp_Pat.getText(), textFieldAp_Mat.getText(), textFieldTel.getText());
+
+            LimpiarClienteTxt();
+
+            JOptionPane.showMessageDialog(null, "Cliente actualizado!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+        }
+    }//GEN-LAST:event_bActualizarActionPerformed
+
+    private void BcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcancelarActionPerformed
+        // TODO add your handling code here:
+         LimpiarClienteTxt();
+    }//GEN-LAST:event_BcancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bcancelar;
     private javax.swing.JButton Buscar;
     private javax.swing.JButton bActualizar;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
-    private refaccionaria.swing.txtf.TextFielda textFielda2;
-    private refaccionaria.swing.txtf.TextFielda textFielda3;
-    private refaccionaria.swing.txtf.TextFielda textFielda4;
-    private refaccionaria.swing.txtf.TextFielda textFielda5;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private refaccionaria.swing.txtf.TextFielda textFieldAp_Mat;
+    private refaccionaria.swing.txtf.TextFielda textFieldAp_Pat;
+    private refaccionaria.swing.txtf.TextFielda textFieldID;
+    private refaccionaria.swing.txtf.TextFielda textFieldNombre;
+    private refaccionaria.swing.txtf.TextFielda textFieldTel;
     // End of variables declaration//GEN-END:variables
 }

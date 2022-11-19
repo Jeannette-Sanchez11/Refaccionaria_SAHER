@@ -7,8 +7,12 @@ package refaccionaria.Altas;
 
 import java.awt.Component;
 import java.sql.Connection;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.*;
 import refaccionaria.Acciones.Conexion;
 import refaccionaria.Acciones.Insert;
+import refaccionaria.Acciones.Select;
 import refaccionaria.Validaciones.ValidarC;
 
 /**
@@ -16,20 +20,49 @@ import refaccionaria.Validaciones.ValidarC;
  * @author jesanher
  */
 public class Alta_Productos extends javax.swing.JPanel {
+
     Insert in = new Insert();
     Connection conex;
     ValidarC v = new ValidarC();
     Conexion c = new Conexion();
+    Select s; //= new Select();
+
     private Component rootPane;
+
     /**
      * Creates new form Alta_Productos
      */
     public Alta_Productos() {
         initComponents();
+        s = new Select();
+        comboP();
+        Limpiar();
     }
-    
-    public void Limpiar(){
+
+    public void comboP() {
+        comboTipo.removeAll();
+        //comboTipo.addItem("Seleccione");
+        String[] buscarCod = s.verModelo();
+        for (String i : buscarCod) {
+            comboTipo.addItem(i);
+        }
+
+    }
+
+    public void Limpiar() {
         txtCodigo.setText("");
+        txtNombreA.setText("");
+        txtMarca.setText("");
+        txtPrecio.setText("");
+        txtStock.setText("");
+        comboTipo.setSelectedIndex(0);
+        /*comboTipo.removeAll();
+        //comboTipo.addItem("Seleccione");
+       String[] buscarCod = s.verModelo();
+        for (String i : buscarCod) {
+            comboTipo.addItem(i);
+        }*/
+
     }
 
     /**
@@ -42,42 +75,52 @@ public class Alta_Productos extends javax.swing.JPanel {
     private void initComponents() {
 
         txtCodigo = new refaccionaria.swing.txtf.TextFielda();
-        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda4 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda5 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda6 = new refaccionaria.swing.txtf.TextFielda();
+        txtNombreA = new refaccionaria.swing.txtf.TextFielda();
+        txtMarca = new refaccionaria.swing.txtf.TextFielda();
+        txtPrecio = new refaccionaria.swing.txtf.TextFielda();
+        txtStock = new refaccionaria.swing.txtf.TextFielda();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        comboBoxA1 = new refaccionaria.swing.txtf.ComboBoxA();
+        bGuardar = new javax.swing.JButton();
+        comboTipo = new refaccionaria.swing.txtf.ComboBoxA();
         Bcancelar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 680));
 
         txtCodigo.setLabelText("Codigo de barras");
 
-        textFielda3.setLabelText("Nombre del articulo");
+        txtNombreA.setLabelText("Nombre del articulo");
 
-        textFielda4.setLabelText("Marca");
+        txtMarca.setLabelText("Marca");
 
-        textFielda5.setLabelText("Precio");
+        txtPrecio.setLabelText("Precio");
 
-        textFielda6.setLabelText("Stock");
+        txtStock.setLabelText("Stock");
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Guardar Productos");
 
-        jButton1.setBackground(new java.awt.Color(44, 203, 87));
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(25, 25, 25));
-        jButton1.setText("Guardar");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bGuardar.setBackground(new java.awt.Color(44, 203, 87));
+        bGuardar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        bGuardar.setForeground(new java.awt.Color(25, 25, 25));
+        bGuardar.setText("Guardar");
+        bGuardar.setBorder(null);
+        bGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarActionPerformed(evt);
+            }
+        });
 
-        comboBoxA1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "eee" }));
-        comboBoxA1.setSelectedIndex(-1);
-        comboBoxA1.setLabeText("Tipo de moto");
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
+        comboTipo.setLabeText("");
+        comboTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTipoActionPerformed(evt);
+            }
+        });
 
         Bcancelar.setBackground(new java.awt.Color(235, 47, 47));
         Bcancelar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -90,6 +133,9 @@ public class Alta_Productos extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Modelo de la moto:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,17 +147,19 @@ public class Alta_Productos extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
-                            .addComponent(textFielda3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textFielda4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textFielda5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textFielda6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboBoxA1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                                .addComponent(txtNombreA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtStock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboTipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,19 +169,21 @@ public class Alta_Productos extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(55, 55, 55)
                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(comboBoxA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(5, 5, 5)
+                .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNombreA, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(textFielda4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(textFielda5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(textFielda6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
@@ -141,19 +191,67 @@ public class Alta_Productos extends javax.swing.JPanel {
 
     private void BcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcancelarActionPerformed
         // TODO add your handling code here:
+
         Limpiar();
     }//GEN-LAST:event_BcancelarActionPerformed
+
+    private void comboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipoActionPerformed
+        // TODO add your handling code here:
+        //  c = new Conexion();
+        try {
+            c = new Conexion();
+            String modelo = comboTipo.getSelectedItem().toString();
+            if (!modelo.equals("")) {
+                String datos[] = s.verModelo();
+            }
+        } catch (Exception x) {
+
+        }
+    }//GEN-LAST:event_comboTipoActionPerformed
+
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        // TODO add your handling code here:
+        String codi_Barra = txtCodigo.getText();
+        String modelo = comboTipo.getSelectedItem().toString();
+        String nombre_Arti = txtNombreA.getText();
+        String marca = txtMarca.getText();
+        String precioT = txtPrecio.getText();
+        String stockT = txtStock.getText();
+        int id_Tipo, stock;
+        float precio;
+
+        if (!codi_Barra.equals("") && !modelo.equals("") && !nombre_Arti.equals("") && !marca.equals("") && !precioT.equals("") && !stockT.equals("")) {
+            id_Tipo = Integer.parseInt(s.BuacarIDTM(modelo));
+            if (v.ValidarArticulo(codi_Barra, nombre_Arti) == 0) {
+                JOptionPane.showMessageDialog(rootPane, "El articulo ya fue registrado!");
+            } else {
+                stock = Integer.parseInt(stockT);
+                precio = Float.parseFloat(precioT);
+                if (in.insertArticulos(codi_Barra, id_Tipo, nombre_Arti, marca, precio, stock)) {
+                    JOptionPane.showMessageDialog(rootPane, "Registro exitoso!!");
+                } else {
+                    JOptionPane.showConfirmDialog(rootPane, "Registro fallido");
+                }
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Favor de ingresar todos datos!!!!");
+        }
+        Limpiar();
+
+    }//GEN-LAST:event_bGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bcancelar;
-    private refaccionaria.swing.txtf.ComboBoxA comboBoxA1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bGuardar;
+    private refaccionaria.swing.txtf.ComboBoxA comboTipo;
     private javax.swing.JLabel jLabel1;
-    private refaccionaria.swing.txtf.TextFielda textFielda3;
-    private refaccionaria.swing.txtf.TextFielda textFielda4;
-    private refaccionaria.swing.txtf.TextFielda textFielda5;
-    private refaccionaria.swing.txtf.TextFielda textFielda6;
+    private javax.swing.JLabel jLabel2;
     private refaccionaria.swing.txtf.TextFielda txtCodigo;
+    private refaccionaria.swing.txtf.TextFielda txtMarca;
+    private refaccionaria.swing.txtf.TextFielda txtNombreA;
+    private refaccionaria.swing.txtf.TextFielda txtPrecio;
+    private refaccionaria.swing.txtf.TextFielda txtStock;
     // End of variables declaration//GEN-END:variables
 }
