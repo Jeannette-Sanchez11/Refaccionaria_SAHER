@@ -5,6 +5,14 @@
  */
 package refaccionaria.Bajas;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Acciones.Delete;
+
 /**
  *
  * @author jesanher
@@ -16,6 +24,46 @@ public class Baja_Cliente extends javax.swing.JPanel {
      */
     public Baja_Cliente() {
         initComponents();
+    }
+
+    public void RellenotxtCliente() {
+        String nombre = textFielda5.getText();
+        System.out.println("" + nombre);
+        String sql = "Select * from Cliente where nombre='" + nombre + "'";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.ConectarBD();
+
+        System.out.println(sql);
+        try {
+            st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            System.out.println(sql);
+            int x = 0;
+
+            while (rs.next()) {
+                textFielda1.setText(rs.getString(1));
+                textFielda2.setText(rs.getString(3));
+                textFielda3.setText(rs.getString(4));
+                textFielda4.setText(rs.getString(5));
+                x = 1;
+            }
+            if (x == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontro el cliente!");
+                LimpiarClienteTxt();
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.toString());
+        }
+    }
+
+    public void LimpiarClienteTxt() {
+        textFielda1.setText("");
+        textFielda5.setText("");
+        textFielda2.setText("");
+        textFielda3.setText("");
+        textFielda4.setText("");
     }
 
     /**
@@ -59,6 +107,11 @@ public class Baja_Cliente extends javax.swing.JPanel {
         bEliminar.setText("Eliminar");
         bEliminar.setBorder(null);
         bEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarActionPerformed(evt);
+            }
+        });
 
         Buscar.setBackground(new java.awt.Color(165, 254, 203));
         Buscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -66,6 +119,11 @@ public class Baja_Cliente extends javax.swing.JPanel {
         Buscar.setText("Buscar");
         Buscar.setBorder(null);
         Buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,6 +168,28 @@ public class Baja_Cliente extends javax.swing.JPanel {
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        RellenotxtCliente();
+    }//GEN-LAST:event_BuscarActionPerformed
+
+    Delete delete = new Delete();
+    private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
+        // TODO add your handling code here:
+        if (!"".equals(textFielda1.getText()) || !"".equals(textFielda5.getText())
+                || !"".equals(textFielda2.getText())
+                || !"".equals(textFielda3.getText()) | !"".equals(textFielda4.getText())) {
+
+            delete.deleteCliente(Integer.parseInt(textFielda1.getText()));
+
+            LimpiarClienteTxt();
+
+            JOptionPane.showMessageDialog(null, "Cliente elimina con exito!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+        }
+    }//GEN-LAST:event_bEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

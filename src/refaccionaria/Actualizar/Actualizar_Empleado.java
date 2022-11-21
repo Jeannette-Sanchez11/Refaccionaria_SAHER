@@ -45,6 +45,7 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
             st = conexion.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println(sql);
+            int x = 0;
 
             while (rs.next()) {
                 textFieldID_Emp.setText(rs.getString(1));
@@ -60,6 +61,11 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
                 //textFieldaStatus.setText(rs.getString(5));
                 textFieldaTel_Emp.setText(rs.getString(6));
                 textFieldCorreo.setText(rs.getString(7));
+                x = 1;
+            }
+            if(x == 0){
+                JOptionPane.showMessageDialog(null, "No se encontro el empleado!");
+                LimpiarEmpleadoTxt();
             }
 
         } catch (SQLException e) {
@@ -87,6 +93,7 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
         bBuscar = new javax.swing.JButton();
         Bcancelar = new javax.swing.JButton();
         comboBStatus = new refaccionaria.swing.txtf.ComboBoxA();
+        jLabel2 = new javax.swing.JLabel();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 680));
@@ -94,7 +101,7 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Empleado.png"))); // NOI18N
-        jLabel1.setText("Guardar Empleado");
+        jLabel1.setText("Actualizar Empleado");
 
         textFieldaNombre.setLabelText("Nombre  del Empleado");
 
@@ -147,6 +154,10 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
         comboBStatus.setSelectedIndex(-1);
         comboBStatus.setLabeText("Status del empleado");
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Ingrese el nombre del empleado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,7 +166,7 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
                 .addGap(321, 321, 321)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(160, 160, 160)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(textFieldaAp_Mat, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,7 +181,9 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
                         .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(comboBStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
@@ -184,7 +197,9 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(textFieldaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(4, 4, 4)
                 .addComponent(textFieldaAp_Pat, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(textFieldaAp_Mat, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,6 +264,7 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
     private javax.swing.JButton bBuscar;
     private refaccionaria.swing.txtf.ComboBoxA comboBStatus;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private refaccionaria.swing.txtf.TextFielda textFieldCorreo;
     private refaccionaria.swing.txtf.TextFielda textFieldID_Emp;
     private refaccionaria.swing.txtf.TextFielda textFieldaAp_Mat;

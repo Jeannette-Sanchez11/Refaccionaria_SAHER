@@ -203,5 +203,29 @@ public class Insert {
         return !respuesta;//retorno de respuesta
 
     }
+    
+    public boolean insertVenta(int id_Cliente, int id_Emp, String fecha_Venta, float monto_Final) {//metodo para insertar un usuario
+        //se prepara la insercion del dato de usuario
+        sql = "insert into venta(id_Cliente, id_Emp, fecha_Venta, monto_Final) values("+id_Cliente+","+id_Emp+",'"+fecha_Venta+"',"+monto_Final+");";
+        respuesta = true;// nos devuelven el valor booleano despues de la insercion
+        try {
+            st = conex.createStatement();
+            respuesta = st.execute(sql);
+            System.out.println(respuesta);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            try {
+                st.close();//cierra la conexion
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+                System.out.println(ex.getMessage());
+            }
+        }
+
+        return !respuesta;//retorno de respuesta
+
+    }
+
 
 }

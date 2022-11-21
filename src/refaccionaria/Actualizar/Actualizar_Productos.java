@@ -64,6 +64,7 @@ public class Actualizar_Productos extends javax.swing.JPanel {
             st = conexion.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println(sql);
+            int x = 0;
             while (rs.next()) {
                 //textFieldTipo_Moto.setText(rs.getString(2));
                 id_tipo = Integer.parseInt(rs.getString(2));
@@ -73,7 +74,11 @@ public class Actualizar_Productos extends javax.swing.JPanel {
                 textFieldMarca.setText(rs.getString(4));
                 textFieldPrecio.setText(rs.getString(5));
                 textFieldStock.setText(rs.getString(6));
-
+                x = 1;
+            }
+            if (x == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontro producto");
+                LimpiarArticulosTxt();
             }
 
         } catch (SQLException e) {
@@ -228,7 +233,7 @@ public class Actualizar_Productos extends javax.swing.JPanel {
                 || !"".equals(textFieldMarca.getText()) | !"".equals(textFieldPrecio.getText()) | !"".equals(textFieldStock.getText())) {
             id_Tipo = Integer.parseInt(s.BuacarIDTM(modelo));
 
-            update.updateProductos(textFieldCodi_Barra.getText(),id_Tipo, textFieldNombre_Art.getText(), textFieldMarca.getText(), (float) Double.parseDouble(textFieldPrecio.getText()), Integer.parseInt(textFieldStock.getText()));
+            update.updateProductos(textFieldCodi_Barra.getText(), id_Tipo, textFieldNombre_Art.getText(), textFieldMarca.getText(), (float) Double.parseDouble(textFieldPrecio.getText()), Integer.parseInt(textFieldStock.getText()));
             LimpiarArticulosTxt();
 
             JOptionPane.showMessageDialog(null, "Articulos actualizado!");

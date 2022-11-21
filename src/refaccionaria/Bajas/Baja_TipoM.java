@@ -5,6 +5,14 @@
  */
 package refaccionaria.Bajas;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Acciones.Delete;
+
 /**
  *
  * @author jesanher
@@ -16,6 +24,45 @@ public class Baja_TipoM extends javax.swing.JPanel {
      */
     public Baja_TipoM() {
         initComponents();
+    }
+
+    public void RellenotxtTM() {
+        int nombre = Integer.parseInt(textFielda5.getText());
+        System.out.println("" + nombre);
+        String sql = "Select * from Tipo_De_Moto where id_Tipo=" + nombre + ";";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.ConectarBD();
+
+        System.out.println(sql);
+        try {
+            st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            System.out.println(sql);
+            int x = 0;
+            while (rs.next()) {
+                textFielda1.setText(rs.getString(2));
+                textFielda2.setText(rs.getString(3));
+                textFielda3.setText(rs.getString(4));
+                textFielda4.setText(rs.getString(5));
+                x = 1;
+            }
+            if (x == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontro Tipo de moto");
+                LimpiarTMTxt();
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.toString());
+        }
+    }
+
+    public void LimpiarTMTxt() {
+        textFielda5.setText("");
+        textFielda1.setText("");
+        textFielda2.setText("");
+        textFielda3.setText("");
+        textFielda4.setText("");
     }
 
     /**
@@ -59,6 +106,11 @@ public class Baja_TipoM extends javax.swing.JPanel {
         bBuscar.setText("Buscar");
         bBuscar.setBorder(null);
         bBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarActionPerformed(evt);
+            }
+        });
 
         bEliminar.setBackground(new java.awt.Color(235, 47, 47));
         bEliminar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -66,6 +118,11 @@ public class Baja_TipoM extends javax.swing.JPanel {
         bEliminar.setText("Eliminar");
         bEliminar.setBorder(null);
         bEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -111,6 +168,27 @@ public class Baja_TipoM extends javax.swing.JPanel {
                 .addGap(42, 42, 42))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
+        // TODO add your handling code here:
+        RellenotxtTM();
+    }//GEN-LAST:event_bBuscarActionPerformed
+
+    Delete delete = new Delete();
+    private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
+        // TODO add your handling code here:
+        if (!"".equals(textFielda5.getText()) || !"".equals(textFielda1.getText())
+                || !"".equals(textFielda2.getText())
+                || !"".equals(textFielda3.getText()) | !"".equals(textFielda4.getText())) {
+
+            delete.deleteTipoDeMoto((int) Double.parseDouble(textFielda5.getText()));
+            LimpiarTMTxt();
+
+            JOptionPane.showMessageDialog(null, "Tipo de moto eliminado con exito!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+        }
+    }//GEN-LAST:event_bEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

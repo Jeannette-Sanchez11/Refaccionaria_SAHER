@@ -177,11 +177,11 @@ public class ValidarC {
         }
         return respu;
     }//metodo de validar el articulo
-    
+
     public int ValidarUsuario(String nombre_usuario) {//metodo que valida el dato antes de registrase en la base de datos
         respu = 0;//bandera
         try {
-            sql = "select nombre_usuario from usuarios where nombre_usuario='"+nombre_usuario+"';";
+            sql = "select nombre_usuario from usuarios where nombre_usuario='" + nombre_usuario + "';";
             st = conex.createStatement();
             rs = st.executeQuery(sql);
             if (rs.next()) {
@@ -202,6 +202,87 @@ public class ValidarC {
             }
         }
         return respu;
-    }//metodo de validar categoria
+    }//metodo de validar usuario
 
+    public int Validar_ArticuloV(String codi_Barra) {//metodo que valida el dato antes de registrase en la base de datos
+        respu = 0;//bandera
+        try {
+            sql = "select codi_Barra, nombre_Arti from articulos where codi_Barra='" + codi_Barra + "';";
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                System.out.println("El dato existe en la base de datos!!");
+                respu = 0;//si el dato fue encontado se da la bandera de 0
+            } else {
+                System.out.println("El dato no ha sido registrado");
+                respu = 1;//el dato NO fue encontrado asi que manda la bandera de 1
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        return respu;
+    }//metodo de validar el articulo en venta
+
+    public int Validar_ServicioV(String descripcion) {//metodo que valida el dato antes de registrase en la base de datos
+        respu = 0;//bandera
+        try {
+            sql = "select id_Servi, descripcion from Servicios where descripcion = '" + descripcion + "';";
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                System.out.println("El dato existe en la base de datos!!");
+                respu = 0;//si el dato fue encontado se da la bandera de 0
+            } else {
+                System.out.println("El dato no ha sido registrado");
+                respu = 1;//el dato NO fue encontrado asi que manda la bandera de 1
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        return respu;
+    }
+    
+    
+    public int Validar_UsuarioI(String nombre_usuario,String contrasenia) {//metodo que valida el dato antes de registrase en la base de datos
+        respu = 0;//bandera
+        try {
+            sql = "select * from usuarios where nombre_usuario='"+nombre_usuario+"' and contrasenia='"+contrasenia+"';";
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                System.out.println("El dato existe en la base de datos!!");
+                respu = 0;//si el dato fue encontado se da la bandera de 0
+            } else {
+                System.out.println("El dato no ha sido registrado");
+                respu = 1;//el dato NO fue encontrado asi que manda la bandera de 1
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        return respu;
+    }//metodo de validar usuario
+    
+    
+    
 }

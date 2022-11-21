@@ -25,11 +25,12 @@ import refaccionaria.Validaciones.ValidarC;
  */
 public class Alta_compra extends javax.swing.JPanel {
 
-    Insert in = new Insert();
-    Connection conex;
-    ValidarC v = new ValidarC();
-    Conexion c = new Conexion();
+    Insert in = new Insert();//
+    Connection conex;//
+    ValidarC v = new ValidarC();//
+    Conexion c = new Conexion();//
     Select s; //= new Select();
+    DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
     private Component rootPane;
     PreparedStatement ps;
     ResultSet rs;
@@ -68,6 +69,22 @@ public class Alta_compra extends javax.swing.JPanel {
         txtCodigoB.setText("");
         txtCantidad.setText("");
         txtPrecioC.setText("");
+    }
+
+    public void limpiar_todo() {
+        comboProveedor.setSelectedIndex(0);
+        txtCodigoB.setText("");
+        txtCantidad.setText("");
+        txtPrecioC.setText("");
+        txtMontoF.setText("");
+        LimpiarTable();
+    }
+
+    public void LimpiarTable() {
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i = i - 1;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -143,7 +160,7 @@ public class Alta_compra extends javax.swing.JPanel {
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -178,6 +195,11 @@ public class Alta_compra extends javax.swing.JPanel {
         jButton4.setForeground(new java.awt.Color(25, 25, 25));
         jButton4.setText("Cancelar");
         jButton4.setBorder(null);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         comboProveedor.setForeground(new java.awt.Color(255, 255, 255));
         comboProveedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione el Proveedor" }));
@@ -203,7 +225,10 @@ public class Alta_compra extends javax.swing.JPanel {
                                 .addContainerGap()
                                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(bAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(231, 231, 231)
+                                    .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,13 +242,8 @@ public class Alta_compra extends javax.swing.JPanel {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(txtCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtPrecioC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(469, 469, 469)
-                                            .addComponent(Fecha_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(40, 40, 40)
-                                            .addComponent(bAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addGap(469, 469, 469)
+                                    .addComponent(Fecha_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -243,14 +263,14 @@ public class Alta_compra extends javax.swing.JPanel {
                             .addComponent(comboProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Fecha_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCodigoB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCodigoB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(3, 3, 3))
@@ -279,9 +299,14 @@ public class Alta_compra extends javax.swing.JPanel {
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
         // TODO add your handling code here:
-        guardar_compra();
-        guardar_detalle();
+        if (comboProveedor.getSelectedIndex() != 0 && !txtMontoF.equals("") && modelo.getRowCount() != 0) {
+            guardar_compra();
+            guardar_detalle();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Favor de ingresar todos datos!!!!");
+        }
         con = 1;
+        limpiar_todo();
     }//GEN-LAST:event_bGuardarActionPerformed
 
     private void bAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirActionPerformed
@@ -296,9 +321,14 @@ public class Alta_compra extends javax.swing.JPanel {
 
     }//GEN-LAST:event_bAnadirActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        limpiar_todo();
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     public void agregar_articulo() {
         float total_pa = 0;//total por articulo
-        DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
         modelo = (DefaultTableModel) TablaC.getModel();
         String codi_Barra = txtCodigoB.getText();
         cantidad = Integer.parseInt(txtCantidad.getText());
@@ -345,6 +375,7 @@ public class Alta_compra extends javax.swing.JPanel {
     }
 
     public void guardar_compra() {
+
         float monto_TotalC = Float.parseFloat(txtMontoF.getText());
         String fecha_compra = Fecha_compra.getText();
         String proveedor = comboProveedor.getSelectedItem().toString();
@@ -375,23 +406,23 @@ public class Alta_compra extends javax.swing.JPanel {
 
             try {
                 conex = c.ConectarBD();
-                String sql = "call Altadedetallecompraprove ("+id_compra+","+cns+", '"+codi_barra+"', '"+nombre+"',"+precio_c+", "+cantidad+","+precio_total+", null);";
-                ps = conex.prepareStatement(sql); 
+                String sql = "call Altadedetallecompraprove (" + id_compra + "," + cns + ", '" + codi_barra + "', '" + nombre + "'," + precio_c + ", " + cantidad + "," + precio_total + ", null);";
+                ps = conex.prepareStatement(sql);
                 rs = ps.executeQuery();
                 rs.next();
                 pRes = rs.getInt("pRes");
                 //Condicion para cuando ya se ha guardado el registro
-                if (pRes==1) {
+                if (pRes == 1) {
                     System.out.println("Detalle guardado!!");
-                }else if (pRes==2) {
-                      JOptionPane.showMessageDialog(null, "Error al realizar la compra, no e encuentra el id de la compra");
-                }else if (pRes==3) {
+                } else if (pRes == 2) {
+                    JOptionPane.showMessageDialog(null, "Error al realizar la compra, no e encuentra el id de la compra");
+                } else if (pRes == 3) {
                     JOptionPane.showMessageDialog(null, "Error al realizar la compra", "No hay el articulo ingresado!", JOptionPane.ERROR_MESSAGE);
-                }else if (pRes==0) {
-                     JOptionPane.showMessageDialog(null, "Error al realizar la compra", "error", JOptionPane.ERROR_MESSAGE);
+                } else if (pRes == 0) {
+                    JOptionPane.showMessageDialog(null, "Error al realizar la compra", "error", JOptionPane.ERROR_MESSAGE);
                 }
-                
-               /* if (pRes == 0) {
+
+                /* if (pRes == 0) {
                     JOptionPane.showMessageDialog(null, "Error al realizar la compra", "Error al realizar la compra", JOptionPane.ERROR_MESSAGE);
                 } else if (pRes == 1) {
                     // JOptionPane.showMessageDialog(null, "Compra realizada");
@@ -399,7 +430,6 @@ public class Alta_compra extends javax.swing.JPanel {
                     //limpiar_articulos();
                     //Se debe mostrar el total que lleva la venta               
                 }*/
-
             } catch (Exception e) {
             }
 

@@ -231,5 +231,159 @@ public class Select {
 
         return idc;
     }
+    
+    public String BuacarID_Cliente(String nombre,String ap_Pat, String ap_Mat) {
+        String id_Cliente = "";
+        sql = " select id_Cliente from cliente where nombre='"+nombre+"' and ap_Pat='"+ap_Pat+"'  and ap_Mat='"+ap_Mat+"';";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                id_Cliente = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return id_Cliente;
+    }
+    
+  public String BuscarPrecio(String codi_Barra) {
+        String precio = "";
+        sql = "select precio from articulos where codi_Barra='" + codi_Barra + "';";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                precio = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return precio;
+    }  
+    
+    public String[] verNombre() {
+        String sql = "select nombre_Emp from Empleado where status_empleado=2;";
+        String[] x = new String[1];
+        try {
+            st = conex.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = st.executeQuery(sql);
+            rs.last();
+            int filas = rs.getRow();
+            rs.beforeFirst();
+            x = new String[filas];
+            filas = 0;
+            while (rs.next()) {
+                x[filas] = rs.getString("nombre_Emp");
+                filas++;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        return x;
+    }
+    
+    public String BuacarID_Servi(String descripcion) {
+        String id_Servi = "";
+        sql = "select id_Servi from Servicios where descripcion = '"+descripcion+"';";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                id_Servi = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return id_Servi;
+    }
+    
+    public String BuacarPrecio_Servi(String descripcion) {
+        String precio = "";
+        sql = "select precio_Servi from Servicios where descripcion = '"+descripcion+"';";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                precio = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return precio;
+    }
+    
+    public String[] verServicios() {//Mostrar la lista de proveedores
+        String sql = "select descripcion from servicios;";
+        String[] x = new String[1];
+        try {
+            st = conex.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = st.executeQuery(sql);
+            rs.last();
+            int filas = rs.getRow();
+            rs.beforeFirst();
+            x = new String[filas];
+            filas = 0;
+            while (rs.next()) {
+                x[filas] = rs.getString("descripcion");
+                filas++;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        return x;
+    }
+    
+    
 
 }
