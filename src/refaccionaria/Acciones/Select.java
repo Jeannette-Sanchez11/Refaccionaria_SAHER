@@ -384,6 +384,54 @@ public class Select {
         return x;
     }
     
+    public String BuacarID_Emp(String nombre_Emp) {
+        String id_Emp = "";
+        sql = " select id_Emp from empleado where nombre_Emp='"+nombre_Emp+"' and status_Empleado=2;";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                id_Emp = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return id_Emp;
+    }
+    
+    public String buscarId_Venta() {//busca el id compra mas alto
+        String idc = "";
+        sql = "select max(id_Ventas) from venta;";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                idc = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return idc;
+    }
+    
     
 
 }

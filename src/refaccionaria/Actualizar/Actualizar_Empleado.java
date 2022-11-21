@@ -105,7 +105,7 @@ public class Actualizar_Empleado extends javax.swing.JPanel {
 
         textFieldaNombre.setLabelText("Nombre  del Empleado");
 
-        textFieldaAp_Pat.setLabelText("Apelldio Paterno");
+        textFieldaAp_Pat.setLabelText("Apellido Paterno");
 
         textFieldaAp_Mat.setLabelText("Apellido materno");
 

@@ -53,7 +53,7 @@ public class Alta_Clientes extends javax.swing.JPanel {
 
         txtNombre.setLabelText("Nombre del cliente");
 
-        txtApelleidoP.setLabelText("Apellid Paterno");
+        txtApelleidoP.setLabelText("Apellido Paterno");
 
         txtApellidoM.setLabelText("Apellido materno");
 
@@ -69,7 +69,7 @@ public class Alta_Clientes extends javax.swing.JPanel {
         bGuardar.setForeground(new java.awt.Color(25, 25, 25));
         bGuardar.setText("Guardar");
         bGuardar.setBorder(null);
-        bGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bGuardarActionPerformed(evt);

@@ -108,7 +108,7 @@
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldaAp_Pat">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Apelldio Paterno"/>
+        <Property name="labelText" type="java.lang.String" value="Apellido Paterno"/>
       </Properties>
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldaAp_Mat">
