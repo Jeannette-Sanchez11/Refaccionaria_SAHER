@@ -6,10 +6,13 @@ import refaccionaria.Altas.*;
 import refaccionaria.Bajas.*;
 import refaccionaria.buscar.*;
 import refaccionaria.menu.EventMenuSelected;
+import java.awt.*;
+import javax.swing.*;
 
 public class Main extends javax.swing.JFrame {
 
     private static Main main;
+    private JFrame fram;
 
     public Main() {
         initComponents();
@@ -82,14 +85,14 @@ public class Main extends javax.swing.JFrame {
                 if (index == 5 && indexSubMenu == 1) {
                     showForm(new Alta_Venta());
                 }
-                if (index == 5  && indexSubMenu == 2) {
+                if (index == 5 && indexSubMenu == 2) {
                     showForm(new Buscar_Venta());
                 }
                 //Menu de compras----------------------------------------------------------------------------
                 if (index == 6 && indexSubMenu == 1) {
                     showForm(new Alta_compra());
                 }
-                if (index == 6  && indexSubMenu == 2) {
+                if (index == 6 && indexSubMenu == 2) {
                     showForm(new Buscar_compra());
                 }
                 //Menu de Clientes----------------------------------------------------------------------------
@@ -131,7 +134,12 @@ public class Main extends javax.swing.JFrame {
                 if (index == 9 && indexSubMenu == 4) {
                     showForm(new Baja_Empleado());
                 }
-                /*else {
+                /* if (index == 10 && indexSubMenu == 0) {
+                    // showForm(new Baja_Empleado());
+                    fram.dispose();
+                    Inicio salir = new Inicio();
+                }*/
+ /*else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }*/
             }
@@ -145,10 +153,11 @@ public class Main extends javax.swing.JFrame {
         body.repaint();
         body.revalidate();
     }
-
+    
     public static Main getMain() {
         return main;
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

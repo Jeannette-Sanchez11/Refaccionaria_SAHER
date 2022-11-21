@@ -24,7 +24,7 @@ public class Menu extends JPanel {
     }
 
     private void init() {
-        setBackground(new Color(10,17,60));
+        setBackground(new Color(10, 17, 60));
         setLayout(new BorderLayout());
         JScrollPane scroll = createScroll();
         panelMenu = createPanelMenu();
@@ -35,17 +35,23 @@ public class Menu extends JPanel {
         addTitle("MAIN");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Principal"));
         addTitle("Seccion 1");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Proveedores","Agregar Proveedor", "Mostrar Proveedores", "Actualizar Proveedor", "Eliminar Proveedor"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EXPOSURE, "Productos","Agregar Producto","Mostrar Productos","Actualizar Producto","Eliminar Producto"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DIRECTIONS_BIKE, "Tipo de moto","Agregar tipo","Mostrar tipo","Actualizar tipo","Eliminar tipo"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS_REMOTE, "Servicios","Agregar servicio","Mostrar servicios","Actualizar servicio","Eliminar servicio"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Proveedores", "Agregar Proveedor", "Mostrar Proveedores", "Actualizar Proveedor", "Eliminar Proveedor"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EXPOSURE, "Productos", "Agregar Producto", "Mostrar Productos", "Actualizar Producto", "Eliminar Producto"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DIRECTIONS_BIKE, "Tipo de moto", "Agregar tipo", "Mostrar tipo", "Actualizar tipo", "Eliminar tipo"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS_REMOTE, "Servicios", "Agregar servicio", "Mostrar servicios", "Actualizar servicio", "Eliminar servicio"));
         addTitle("Seccion 2");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MONETIZATION_ON, "Venta",  "Nueva Venta", "Buscar Venta", "Actualizar"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.BUSINESS_CENTER, "Compra",  "Nueva compra", "Buscar compra", "Actualizar"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MONETIZATION_ON, "Venta", "Nueva Venta", "Buscar Venta", "Actualizar"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.BUSINESS_CENTER, "Compra", "Nueva compra", "Buscar compra", "Actualizar"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Clientes", "Agregar Cliente", "Mostrar Cliente", "Actualizar Cliente", "Eliminar Cliente"));
         addTitle("Seccion 3");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.TAB, "Usuarios",  "Agregar Usuario", "Mostrar Usuario", "Actualizar Usuario", "Eliminar Usuario"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.TAB, "Usuarios", "Agregar Usuario", "Mostrar Usuario", "Actualizar Usuario", "Eliminar Usuario"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Empleados", "Agregar Empleado", "Mostar Empleado", "Actualizar Empleado", "Eliminar Empleado"));
+        /*
+        addTitle(".................................................................");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EXIT_TO_APP, "Salir"));*/
+       // space();
+        //addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EXIT_TO_APP, "Salir"));
+
     }
 
     private JScrollPane createScroll() {
@@ -57,6 +63,7 @@ public class Menu extends JPanel {
         return scroll;
     }
 //crea el panel del menu
+
     private JPanel createPanelMenu() {
         JPanel panel = new JPanel();
         panel.setOpaque(false);
@@ -66,6 +73,7 @@ public class Menu extends JPanel {
         return panel;
     }
 //genera panel
+
     private JPanel createMenuItem(ModelMenuItem item) {
         MenuItem menuItem = new MenuItem(item, ++index, menuLayout);
         menuItem.addEvent(new EventMenuSelected() {
@@ -102,6 +110,13 @@ public class Menu extends JPanel {
     public void addSpace(int size) {
         panelMenu.add(new JLabel(), "h " + size + "!");
     }
+
+    private void space() {
+        panelMenu.add(new JLabel(), "push");
+    }
+    
+    
+    
 
     public void setSelectedIndex(int index, int indexSubMenu) {
         for (Component com : panelMenu.getComponents()) {

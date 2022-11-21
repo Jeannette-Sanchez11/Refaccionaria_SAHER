@@ -14,15 +14,18 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
 import javax.swing.JButton;
-import javax.swing.JComponent;
+import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
-import refaccionaria.main.*;
+import refaccionaria.main.Inicio;
 
-public class TitleBar extends JComponent {
-
+/**
+ *
+ * @author jesanher
+ */
+public class TitleBar2 extends JComponent {
     private JFrame fram;
     private ComponentResizer resizer;
     private JPanel panel;
@@ -30,10 +33,11 @@ public class TitleBar extends JComponent {
     private int x;
     private int y;
 
-    public TitleBar() {
+
+    public TitleBar2() {
         init();
     }
-
+    
     public void initJFram(JFrame fram) {
         this.fram = fram;
         resizer = new ComponentResizer();
@@ -74,15 +78,15 @@ public class TitleBar extends JComponent {
             }
         });
     }
-
+    
     private void init() {
         setLayout(new MigLayout("inset 2, fill", "[fill]"));
         panel = new JPanel();
         panel.setOpaque(false);
         add(panel);
         panel.setLayout(new MigLayout("inset 2"));
-        Item close = new Item();
-        Item minimize = new Item();
+        TitleBar2.Item close = new TitleBar2.Item();
+        TitleBar2.Item minimize = new TitleBar2.Item();
         //Item resize = new Item();
         close.setBackground(new Color(235, 47, 47));
         minimize.setBackground(new Color(220, 213, 53));
@@ -93,10 +97,10 @@ public class TitleBar extends JComponent {
         close.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              //System.exit(0);
-              Inicio s= new Inicio();
+              System.exit(0);
+             /* Inicio s= new Inicio();
               s.setVisible(true);
-              fram.dispose();
+              fram.dispose();*/
             }
         });
         minimize.addActionListener(new ActionListener() {
@@ -117,6 +121,8 @@ public class TitleBar extends JComponent {
         });*/
     }
 
+    
+    
     private class Item extends JButton {
 
         public Item() {
@@ -141,4 +147,5 @@ public class TitleBar extends JComponent {
             g2.dispose();
         }
     }
+
 }
