@@ -106,6 +106,7 @@ public class Alta_compra extends javax.swing.JPanel {
         txtPrecioC = new refaccionaria.swing.txtf.TextFielda();
         jButton4 = new javax.swing.JButton();
         comboProveedor = new refaccionaria.swing.txtf.ComboBoxA();
+        bquitarF = new javax.swing.JButton();
 
         setForeground(new java.awt.Color(25, 25, 25));
         setOpaque(false);
@@ -210,6 +211,18 @@ public class Alta_compra extends javax.swing.JPanel {
             }
         });
 
+        bquitarF.setBackground(new java.awt.Color(220, 213, 53));
+        bquitarF.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        bquitarF.setForeground(new java.awt.Color(25, 25, 25));
+        bquitarF.setText("Quitar producto");
+        bquitarF.setBorder(null);
+        bquitarF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bquitarF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bquitarFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,8 +241,9 @@ public class Alta_compra extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(bAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(231, 231, 231)
-                                    .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
@@ -242,8 +256,13 @@ public class Alta_compra extends javax.swing.JPanel {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(txtCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtPrecioC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(469, 469, 469)
-                                    .addComponent(Fecha_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(469, 469, 469)
+                                            .addComponent(Fecha_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -263,17 +282,20 @@ public class Alta_compra extends javax.swing.JPanel {
                             .addComponent(comboProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Fecha_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodigoB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCodigoB, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(3, 3, 3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6))
                     .addComponent(txtPrecioC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,6 +348,18 @@ public class Alta_compra extends javax.swing.JPanel {
         limpiar_todo();
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void bquitarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bquitarFActionPerformed
+        // TODO add your handling code here:
+        modelo = (DefaultTableModel)TablaC.getModel();
+        if (TablaC.getSelectedRowCount() == 1) {
+            modelo.removeRow(TablaC.getSelectedRow());
+        } else if (TablaC.getSelectedRowCount() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "No hay nada en la tabla, favor de ingresar los datos");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Favor de seleccionar un dato");
+        }
+    }//GEN-LAST:event_bquitarFActionPerformed
 
     public void agregar_articulo() {
         float total_pa = 0;//total por articulo
@@ -443,6 +477,7 @@ public class Alta_compra extends javax.swing.JPanel {
     private refaccionaria.swing.table.Table TablaC;
     private javax.swing.JButton bAnadir;
     private javax.swing.JButton bGuardar;
+    private javax.swing.JButton bquitarF;
     private javax.swing.ButtonGroup buttonGroup1;
     private refaccionaria.swing.txtf.ComboBoxA comboProveedor;
     private javax.swing.JButton jButton4;

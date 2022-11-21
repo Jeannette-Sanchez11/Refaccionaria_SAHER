@@ -23,7 +23,7 @@ public class Main extends javax.swing.JFrame {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
                 if (index == 0 && indexSubMenu == 0) {
-                    showForm(new Form_Dashboard());
+                    showForm(new Panel_Bienvenida());
                 }
                 //Menu Proveedor----------------------------------------------------------------------------
                 if (index == 1 && indexSubMenu == 1) {

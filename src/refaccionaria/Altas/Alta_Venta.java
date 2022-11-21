@@ -37,7 +37,7 @@ public class Alta_Venta extends javax.swing.JPanel {
         txtMontoFinal.setText("0.0");
         comboP();
         comboS();
-      //  calcular_costo();
+        //  calcular_costo();
     }
 
     public void init() {
@@ -45,29 +45,35 @@ public class Alta_Venta extends javax.swing.JPanel {
         Calendar calendar = new GregorianCalendar();
         Fecha_venta.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.YEAR) + "");
     }
-    
+
     public void comboP() {
-        comboBoxA1.removeAll();
+        comboBoxEmpleado.removeAll();
         //comboTipo.addItem("Seleccione");
         String[] buscarCod = s.verNombre();
         for (String i : buscarCod) {
-            comboBoxA1.addItem(i);
+            comboBoxEmpleado.addItem(i);
         }
     }
-    
+
     public void comboS() {
-        comboBoxA2.removeAll();
+        comboBoxServicio.removeAll();
         //comboTipo.addItem("Seleccione");
         String[] buscarCod = s.verServicios();
         for (String i : buscarCod) {
-            comboBoxA2.addItem(i);
+            comboBoxServicio.addItem(i);
         }
     }
 
     public void limpiar() {
         txtCodigoBarras.setText("");
         txtCantidad.setText("");
-       // txtServicio.setText("");
+        // txtServicio.setText("");
+    }
+
+    public void limpiar_cliente() {
+        txtNombre.setText("");
+        txtAp_Pat.setText("");
+        txtAp_Mat.setText("");
     }
 
     public void limpiar_todo() {
@@ -77,9 +83,10 @@ public class Alta_Venta extends javax.swing.JPanel {
         txtID_Cliente.setText("");
         txtCodigoBarras.setText("");
         txtCantidad.setText("");
-        comboBoxA1.setSelectedIndex(0);
-      //  txtServicio.setText("");
-        txtMontoFinal.setText(""+0.0);
+        comboBoxEmpleado.setSelectedIndex(0);
+        comboBoxServicio.setSelectedIndex(0);
+        //  txtServicio.setText("");
+        txtMontoFinal.setText("" + 0.0);
         LimpiarTable();
     }
 
@@ -116,8 +123,8 @@ public class Alta_Venta extends javax.swing.JPanel {
         txtAp_Pat = new refaccionaria.swing.txtf.TextFielda();
         txtAp_Mat = new refaccionaria.swing.txtf.TextFielda();
         txtID_Cliente = new refaccionaria.swing.txtf.TextFielda();
-        comboBoxA1 = new refaccionaria.swing.txtf.ComboBoxA();
-        comboBoxA2 = new refaccionaria.swing.txtf.ComboBoxA();
+        comboBoxEmpleado = new refaccionaria.swing.txtf.ComboBoxA();
+        comboBoxServicio = new refaccionaria.swing.txtf.ComboBoxA();
         bquitarF = new javax.swing.JButton();
 
         setOpaque(false);
@@ -171,7 +178,7 @@ public class Alta_Venta extends javax.swing.JPanel {
 
             },
             new String [] {
-                "#", "Nombre del producto", "Precio", "Cantidad", "Monto Articulo"
+                "#", "Nombre del articulo", "Precio", "Cantidad", "Monto total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -218,6 +225,7 @@ public class Alta_Venta extends javax.swing.JPanel {
         bCancelar.setForeground(new java.awt.Color(25, 25, 25));
         bCancelar.setText("Cancelar");
         bCancelar.setBorder(null);
+        bCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCancelarActionPerformed(evt);
@@ -248,21 +256,21 @@ public class Alta_Venta extends javax.swing.JPanel {
         txtID_Cliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtID_Cliente.setLabelText("ID del cliente");
 
-        comboBoxA1.setForeground(new java.awt.Color(255, 255, 255));
-        comboBoxA1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione el nombre del empleado" }));
-        comboBoxA1.setLabeText("");
-        comboBoxA1.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        comboBoxEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione el nombre del empleado" }));
+        comboBoxEmpleado.setLabeText("");
+        comboBoxEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxA1ActionPerformed(evt);
+                comboBoxEmpleadoActionPerformed(evt);
             }
         });
 
-        comboBoxA2.setForeground(new java.awt.Color(255, 255, 255));
-        comboBoxA2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione el servicio" }));
-        comboBoxA2.setLabeText("");
-        comboBoxA2.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxServicio.setForeground(new java.awt.Color(255, 255, 255));
+        comboBoxServicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione el servicio" }));
+        comboBoxServicio.setLabeText("");
+        comboBoxServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxA2ActionPerformed(evt);
+                comboBoxServicioActionPerformed(evt);
             }
         });
 
@@ -271,6 +279,7 @@ public class Alta_Venta extends javax.swing.JPanel {
         bquitarF.setForeground(new java.awt.Color(25, 25, 25));
         bquitarF.setText("Quitar producto");
         bquitarF.setBorder(null);
+        bquitarF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bquitarF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bquitarFActionPerformed(evt);
@@ -306,16 +315,16 @@ public class Alta_Venta extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(bAnadirA, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(comboBoxA1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(comboBoxEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(comboBoxA2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(bAnadirS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(comboBoxServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(bAnadirS, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Fecha_venta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,9 +333,7 @@ public class Alta_Venta extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel1))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(bquitarF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -336,21 +343,14 @@ public class Alta_Venta extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboBoxA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(Fecha_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(comboBoxA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bAnadirS, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboBoxEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(Fecha_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -367,9 +367,13 @@ public class Alta_Venta extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(bAnadirA, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(2, 2, 2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(bAnadirA, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bAnadirS, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtID_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -382,6 +386,9 @@ public class Alta_Venta extends javax.swing.JPanel {
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
         // TODO add your handling code here:
+        if (!txtNombre.equals("")&&!txtAp_Pat.equals("")&& !txtAp_Mat.equals("")&& !txtID_Cliente.equals("")&& comboBoxEmpleado.getSelectedIndex()!=0 && !txtMontoFinal.getText().equals("")|| !txtMontoFinal.equals("0.0")) {
+            guardar_venta();
+        }
         con = 1;
         limpiar_todo();
         monto_final = 0;
@@ -403,6 +410,7 @@ public class Alta_Venta extends javax.swing.JPanel {
                 txtID_Cliente.setText(id_cliente);
             } else if (v.ValidarCliente(nombre, ap_Pat, ap_Mat) == 1) {
                 JOptionPane.showMessageDialog(rootPane, "El cliente no ha sido registrado, favor de guardar el cliente");
+                limpiar_cliente();
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Favor de ingresar todos datos del cliente!!!!");
@@ -428,7 +436,7 @@ public class Alta_Venta extends javax.swing.JPanel {
 
     private void bAnadirSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnadirSActionPerformed
         // TODO add your handling code here:
-        String descripcion = comboBoxA2.getSelectedItem().toString();
+        String descripcion = comboBoxServicio.getSelectedItem().toString();
         if (!descripcion.equals("")) {
             if (v.Validar_ServicioV(descripcion) == 0) {//servicio encontrado
                 agregar_servicio();
@@ -440,34 +448,43 @@ public class Alta_Venta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_bAnadirSActionPerformed
 
-    private void comboBoxA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxA1ActionPerformed
+    private void comboBoxEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEmpleadoActionPerformed
         // TODO add your handling code here:
         try {
             c = new Conexion();
-            String nombre = comboBoxA1.getSelectedItem().toString();
+            String nombre = comboBoxEmpleado.getSelectedItem().toString();
             if (!nombre.equals("")) {
                 String datos[] = s.verNombre();
             }
         } catch (Exception x) {
 
         }
-    }//GEN-LAST:event_comboBoxA1ActionPerformed
+    }//GEN-LAST:event_comboBoxEmpleadoActionPerformed
 
-    private void comboBoxA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxA2ActionPerformed
+    private void comboBoxServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxServicioActionPerformed
         // TODO add your handling code here:
         try {
             c = new Conexion();
-            String nombre = comboBoxA2.getSelectedItem().toString();
+            String nombre = comboBoxServicio.getSelectedItem().toString();
             if (!nombre.equals("")) {
                 String datos[] = s.verServicios();
             }
         } catch (Exception x) {
 
         }
-    }//GEN-LAST:event_comboBoxA2ActionPerformed
+    }//GEN-LAST:event_comboBoxServicioActionPerformed
 
     private void bquitarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bquitarFActionPerformed
         // TODO add your handling code here:
+        modelo = (DefaultTableModel) table1.getModel();
+        if (table1.getSelectedRowCount() == 1) {
+            modelo.removeRow(table1.getSelectedRow());
+        } else if (table1.getSelectedRowCount() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "No hay nada en la tabla, favor de ingresar los datos");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Favor de seleccionar un dato");
+        }
+
     }//GEN-LAST:event_bquitarFActionPerformed
 
     public void agrgar_articulo() {
@@ -508,15 +525,15 @@ public class Alta_Venta extends javax.swing.JPanel {
     public void agregar_servicio() {
         float total;
         modelo = (DefaultTableModel) table1.getModel();
-        String descripcion =comboBoxA2.getSelectedItem().toString();;
-        cantidad=1;
-        precio=Float.parseFloat(s.BuacarPrecio_Servi(descripcion));
-        total= precio*cantidad;
-        if (v.ValidarServicio(descripcion, precio)==1) {
+        String descripcion = comboBoxServicio.getSelectedItem().toString();;
+        cantidad = 1;
+        precio = Float.parseFloat(s.BuacarPrecio_Servi(descripcion));
+        total = precio * cantidad;
+        if (v.ValidarServicio(descripcion, precio) == 1) {
             JOptionPane.showMessageDialog(rootPane, "No fue encontrado el servicio");
-        }else{
+        } else {
             ArrayList lista = new ArrayList();
-            if (cantidad>0) {
+            if (cantidad > 0) {
                 lista.add(con);//ocntador de los articulos= al cns a asignar
                 lista.add(descripcion);
                 lista.add(precio);
@@ -532,7 +549,7 @@ public class Alta_Venta extends javax.swing.JPanel {
                 calcular_costo();
                 con = 1 + Integer.parseInt(table1.getValueAt(ultima_fila - 1, 0).toString());
             }
-            
+
         }
 
     }
@@ -546,12 +563,33 @@ public class Alta_Venta extends javax.swing.JPanel {
         }
         txtMontoFinal.setText("" + monto_final);
     }
-        
+
     public void guardar_venta() {
+        int id_Cliente= Integer.parseInt(txtID_Cliente.getText());
+        String nombre_Emp= comboBoxEmpleado.getSelectedItem().toString();
+        int id_Emp = Integer.parseInt(s.BuacarID_Emp(nombre_Emp));
+        String fecha_Venta= Fecha_venta.getText();
+        float monto_Final = Float.parseFloat(txtMontoFinal.getText());
+        if (monto_Final!=0) {
+            if (in.insertVenta(id_Cliente, id_Emp, fecha_Venta, monto_Final)) {
+                JOptionPane.showMessageDialog(rootPane, "Venta Realizada!!!");
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Error al guardar la venta");
+            }
+             JOptionPane.showMessageDialog(rootPane, "Ingrese el producto o material");
+        }
 
     }
 
     public void guardar_detale() {
+        for (int i = 0; i < table1.getRowCount(); i++) {
+            int id_Venta= Integer.parseInt(s.buscarId_Venta());
+            int cns = Integer.parseInt(table1.getValueAt(i, 0).toString());
+            String nombre_buscar= table1.getValueAt(i, 1).toString();
+            
+            
+            
+        }
 
     }
 
@@ -563,8 +601,8 @@ public class Alta_Venta extends javax.swing.JPanel {
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bGuardar;
     private javax.swing.JButton bquitarF;
-    private refaccionaria.swing.txtf.ComboBoxA comboBoxA1;
-    private refaccionaria.swing.txtf.ComboBoxA comboBoxA2;
+    private refaccionaria.swing.txtf.ComboBoxA comboBoxEmpleado;
+    private refaccionaria.swing.txtf.ComboBoxA comboBoxServicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private refaccionaria.swing.RoundPanel roundPanel1;
