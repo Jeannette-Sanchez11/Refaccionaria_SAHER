@@ -1,6 +1,8 @@
 package refaccionaria.main;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import javax.swing.*;
 import refaccionaria.Acciones.Conexion;
@@ -24,7 +26,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void init() {
         main = this;
-        titleBar2.initJFram(this);
+        titleBar21.initJFram(this);
     }
     public void limpiar(){
         usuarioTxt.setText("");
@@ -36,7 +38,7 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         hide = new javax.swing.JPanel();
-        titleBar2 = new refaccionaria.swing.titlebar.TitleBar();
+        titleBar21 = new refaccionaria.swing.titlebar.TitleBar2();
         usuarioTxt = new javax.swing.JTextField();
         contraTxt = new javax.swing.JPasswordField();
         ingresoB = new javax.swing.JPanel();
@@ -52,13 +54,13 @@ public class Inicio extends javax.swing.JFrame {
         hide.setLayout(hideLayout);
         hideLayout.setHorizontalGroup(
             hideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(titleBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addComponent(titleBar21, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
         );
         hideLayout.setVerticalGroup(
             hideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hideLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(titleBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+            .addGroup(hideLayout.createSequentialGroup()
+                .addComponent(titleBar21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
         );
 
         usuarioTxt.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
@@ -187,13 +189,12 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IngresoB;
     private javax.swing.JPasswordField contraTxt;
     private javax.swing.JPanel hide;
     private javax.swing.JPanel ingresoB;
-    private refaccionaria.swing.titlebar.TitleBar titleBar2;
+    private refaccionaria.swing.titlebar.TitleBar2 titleBar21;
     private javax.swing.JTextField usuarioTxt;
     // End of variables declaration//GEN-END:variables
  class fondo extends JPanel {

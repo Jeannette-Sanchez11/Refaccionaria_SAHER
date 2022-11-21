@@ -48,7 +48,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="hide" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="146" pref="146" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
               <Component id="usuarioTxt" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
               <Component id="contraTxt" min="-2" pref="24" max="-2" attributes="0"/>
@@ -73,20 +73,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="titleBar2" alignment="0" pref="420" max="32767" attributes="0"/>
+              <Component id="titleBar21" alignment="0" pref="420" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="titleBar2" pref="23" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="titleBar21" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="refaccionaria.swing.titlebar.TitleBar" name="titleBar2">
+        <Component class="refaccionaria.swing.titlebar.TitleBar2" name="titleBar21">
         </Component>
       </SubComponents>
     </Container>
