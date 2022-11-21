@@ -60,7 +60,7 @@ public class Main extends javax.swing.JFrame {
                     showForm(new Buscar_TM());
                 }
                 if (index == 3 && indexSubMenu == 3) {
-                    showForm(new Actualizar_Productos());
+                    showForm(new Actualizar_TM());
                 }
                 if (index == 3 && indexSubMenu == 4) {
                     showForm(new Baja_TipoM());

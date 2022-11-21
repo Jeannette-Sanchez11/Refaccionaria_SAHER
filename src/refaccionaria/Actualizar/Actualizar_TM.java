@@ -39,12 +39,17 @@ public class Actualizar_TM extends javax.swing.JPanel {
             st = conexion.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println(sql);
-
+            int x = 0;
             while (rs.next()) {
                 textFieldModelo.setText(rs.getString(2));
                 textFieldNombre.setText(rs.getString(3));
                 textFieldMarca.setText(rs.getString(4));
                 textFieldAnio.setText(rs.getString(5));
+                x = 1;
+            }
+            if (x == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontro Tipo de moto");
+                LimpiarTMTxt();
             }
 
         } catch (SQLException e) {
@@ -84,7 +89,7 @@ public class Actualizar_TM extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TipoM.png"))); // NOI18N
-        jLabel1.setText("Tipo de moto");
+        jLabel1.setText("Actualizar Tipo de moto");
 
         textFieldAnio.setLabelText("Modelo");
 
@@ -138,9 +143,6 @@ public class Actualizar_TM extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(351, 351, 351)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textFieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,7 +157,10 @@ public class Actualizar_TM extends javax.swing.JPanel {
                                     .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(textFieldModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(textFieldModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addComponent(jLabel1)))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -163,7 +168,7 @@ public class Actualizar_TM extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(textFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,14 +180,14 @@ public class Actualizar_TM extends javax.swing.JPanel {
                 .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(textFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Bcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
-     Update update= new Update();
+     Update update = new Update();
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         // TODO add your handling code here:
         RellenotxtTM();
@@ -190,15 +195,15 @@ public class Actualizar_TM extends javax.swing.JPanel {
 
     private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
         // TODO add your handling code here:
-         if(!"".equals(textFieldID.getText())|| !"".equals(textFieldAnio.getText())
-            || !"".equals(textFieldMarca.getText())
-            || !"".equals(textFieldModelo.getText())| !"".equals(textFieldNombre.getText())){
+        if (!"".equals(textFieldID.getText()) || !"".equals(textFieldAnio.getText())
+                || !"".equals(textFieldMarca.getText())
+                || !"".equals(textFieldModelo.getText()) | !"".equals(textFieldNombre.getText())) {
 
             update.updateTipoDeMoto(Integer.parseInt(textFieldID.getText()), textFieldModelo.getText(), textFieldNombre.getText(), textFieldMarca.getText(), Integer.parseInt(textFieldAnio.getText()));
             LimpiarTMTxt();
 
             JOptionPane.showMessageDialog(null, "Tipo de moto actualizado!");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Los campos estan vacios");
         }
     }//GEN-LAST:event_bActualizarActionPerformed

@@ -5,6 +5,14 @@
  */
 package refaccionaria.Bajas;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Acciones.Delete;
+
 /**
  *
  * @author jesanher
@@ -16,6 +24,42 @@ public class Bajas_Proveedores extends javax.swing.JPanel {
      */
     public Bajas_Proveedores() {
         initComponents();
+    }
+
+    public void RellenotxtProveedor() {
+        String nombre = textFielda1.getText();
+        System.out.println("" + nombre);
+        String sql = "Select * from Proveedor where rfc_Proveedor='" + nombre + "'";
+        Statement st;
+        Conexion con = new Conexion();
+        Connection conexion = con.ConectarBD();
+
+        System.out.println(sql);
+        try {
+            st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            System.out.println(sql);
+            int x = 0;
+            while (rs.next()) {
+                textFielda2.setText(rs.getString(2));
+                textFielda3.setText(rs.getString(3));
+                x = 1;
+            }
+            if (x == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontro proveeedor");
+                LimpiarProveedorTxt();
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.toString());
+        }
+    }
+
+    public void LimpiarProveedorTxt() {
+        textFielda1.setText("");
+        textFielda2.setText("");
+        textFielda3.setText("");
+
     }
 
     /**
@@ -49,6 +93,11 @@ public class Bajas_Proveedores extends javax.swing.JPanel {
         bBuscar.setText("Buscar");
         bBuscar.setBorder(null);
         bBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarActionPerformed(evt);
+            }
+        });
 
         textFielda3.setLabelText("Numero Telefonico");
 
@@ -63,6 +112,11 @@ public class Bajas_Proveedores extends javax.swing.JPanel {
         bEliminar.setText("Eliminar");
         bEliminar.setBorder(null);
         bEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -103,6 +157,26 @@ public class Bajas_Proveedores extends javax.swing.JPanel {
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
+        // TODO add your handling code here:
+        RellenotxtProveedor();
+    }//GEN-LAST:event_bBuscarActionPerformed
+
+    Delete delete = new Delete();
+    private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
+        // TODO add your handling code here:
+        if (!"".equals(textFielda1.getText()) || !"".equals(textFielda2.getText())
+                || !"".equals(textFielda3.getText())) {
+
+            delete.deleteProveedor(textFielda1.getText());
+            LimpiarProveedorTxt();
+
+            JOptionPane.showMessageDialog(null, "Proveedor eliminado con exito!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+        }
+    }//GEN-LAST:event_bEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

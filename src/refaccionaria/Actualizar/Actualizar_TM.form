@@ -22,10 +22,6 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="351" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textFieldMarca" alignment="0" min="-2" pref="465" max="-2" attributes="0"/>
@@ -46,6 +42,10 @@
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
@@ -56,7 +56,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="textFieldID" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="bBuscar" min="-2" pref="45" max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
               <Component id="textFieldNombre" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="textFieldModelo" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="67" max="32767" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="bActualizar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="Bcancelar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagenes/TipoM.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tipo de moto"/>
+        <Property name="text" type="java.lang.String" value="Actualizar Tipo de moto"/>
       </Properties>
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="textFieldAnio">

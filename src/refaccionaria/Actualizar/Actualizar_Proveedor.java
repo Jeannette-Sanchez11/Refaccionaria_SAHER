@@ -47,11 +47,16 @@ public class Actualizar_Proveedor extends javax.swing.JPanel {
             st = conexion.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println(sql);
+            int x = 0;
 
             while (rs.next()) {
                 textFieldNombre_Prov.setText(rs.getString(2));
                 textFieldTel.setText(rs.getString(3));
-
+                x = 1;
+            }
+            if (x == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontro proveeedor");
+                LimpiarProveedorTxt();
             }
 
         } catch (SQLException e) {
@@ -178,7 +183,7 @@ public class Actualizar_Proveedor extends javax.swing.JPanel {
 
     private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
         // TODO add your handling code here:
-          if (!"".equals(textFieldRfc.getText()) || !"".equals(textFieldNombre_Prov.getText())
+        if (!"".equals(textFieldRfc.getText()) || !"".equals(textFieldNombre_Prov.getText())
                 || !"".equals(textFieldTel.getText())) {
 
             update.updateProveedor(textFieldRfc.getText(), textFieldNombre_Prov.getText(), textFieldTel.getText());

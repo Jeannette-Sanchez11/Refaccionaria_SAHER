@@ -41,7 +41,11 @@
                               <Component id="roundPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="bGuardar" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="bAnadir" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
+                                  <Component id="bGuardar" min="-2" pref="166" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="jButton4" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -60,16 +64,8 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="469" max="-2" attributes="0"/>
-                                          <Component id="Fecha_compra" min="-2" pref="130" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="bAnadir" min="-2" pref="166" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <EmptySpace min="-2" pref="469" max="-2" attributes="0"/>
+                                  <Component id="Fecha_compra" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -98,15 +94,15 @@
                           <Component id="Fecha_compra" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCodigoB" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="bAnadir" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="txtCodigoB" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtCantidad" min="-2" pref="40" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="bGuardar" min="-2" pref="44" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="bGuardar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="bAnadir" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton4" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
@@ -187,7 +183,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="316" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="320" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -328,6 +324,9 @@
           <Border info="null"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboProveedor">
       <Properties>

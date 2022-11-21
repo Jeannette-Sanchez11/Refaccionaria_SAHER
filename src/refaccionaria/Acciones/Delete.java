@@ -177,10 +177,10 @@ public class Delete {
     }
     
     // Eliminar Proveedor
-    public boolean deleteProveedor(String rfc_Proveedor){
+    public boolean deleteProveedor(String rfc_proveedor){
       
         //se prepara la eliminacion del dato de la tabla proveedor
-        sqlElim="delete from Proveedor where rcf_Proveedor="+rfc_Proveedor+";";
+        sqlElim="delete from proveedor where rfc_proveedor='"+rfc_proveedor+"';";
         respElim=true;// nos devuelven el valor booleano despues de la insercion
         try{
             stElim=conex.createStatement();

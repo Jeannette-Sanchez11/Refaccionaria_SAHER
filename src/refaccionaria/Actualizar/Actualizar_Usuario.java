@@ -39,10 +39,16 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
             st = conexion.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println(sql);
+            int x = 0;
 
             while (rs.next()) {
                 textFieldId.setText(rs.getString(1));
                 textFieldContra.setText(rs.getString(3));
+                x = 1;
+            }
+            if (x == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontro usuario");
+                LimpiarUsuarioTxt();
             }
 
         } catch (SQLException e) {
@@ -79,7 +85,7 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
-        jLabel1.setText("Usuarios");
+        jLabel1.setText("Actualizar usuario");
 
         textFieldNombre.setLabelText("Nombre de usuario");
 
@@ -129,10 +135,6 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(374, 374, 374)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(160, 160, 160)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(textFieldNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
@@ -145,13 +147,17 @@ public class Actualizar_Usuario extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(289, 289, 289)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addGap(43, 43, 43)
                 .addComponent(textFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

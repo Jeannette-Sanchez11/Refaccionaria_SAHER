@@ -1,26 +1,36 @@
-
 package refaccionaria.main;
 
 import java.awt.*;
+import java.sql.Connection;
 import javax.swing.*;
+import refaccionaria.Acciones.Conexion;
+import refaccionaria.Validaciones.ValidarC;
 
 public class Inicio extends javax.swing.JFrame {
-     private static Inicio main;
-     fondo fd = new fondo();
+
+    private static Inicio main;
+    fondo fd = new fondo();
+    Conexion c = new Conexion();
+    Connection conex;
+    ValidarC v = new ValidarC();
 
     public Inicio() {
+        conex = c.ConectarBD();
         this.setContentPane(fd);
         initComponents();
         init();
         setResizable(false);
     }
-    
-     private void init() {
+
+    private void init() {
         main = this;
         titleBar2.initJFram(this);
-     }
+    }
+    public void limpiar(){
+        usuarioTxt.setText("");
+        contraTxt.setText("");
+    }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -117,19 +127,30 @@ public class Inicio extends javax.swing.JFrame {
 
     private void IngresoBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresoBMouseClicked
         // TODO add your handling code here:
-        Main ingreso= new Main();
-        ingreso.setVisible(true);
-        this.dispose();
+        if (!usuarioTxt.getText().equals("") && !contraTxt.getText().equals("")) {
+            String nombre_usuario = usuarioTxt.getText();
+            String contrasenia = contraTxt.getText();
+            if (v.Validar_UsuarioI(nombre_usuario, contrasenia) == 0) {
+                Main ingreso = new Main();
+                ingreso.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese su contrasena y su usuario!!");
+        }
+        limpiar();
     }//GEN-LAST:event_IngresoBMouseClicked
 
     private void IngresoBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresoBMouseEntered
         // TODO add your handling code here:
-        ingresoB.setBackground(new Color(16,27,96));
+        ingresoB.setBackground(new Color(16, 27, 96));
     }//GEN-LAST:event_IngresoBMouseEntered
 
     private void IngresoBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresoBMouseExited
         // TODO add your handling code here:
-        ingresoB.setBackground(new Color(10,17,60));
+        ingresoB.setBackground(new Color(10, 17, 60));
     }//GEN-LAST:event_IngresoBMouseExited
 
     /**
@@ -175,17 +196,17 @@ public class Inicio extends javax.swing.JFrame {
     private refaccionaria.swing.titlebar.TitleBar titleBar2;
     private javax.swing.JTextField usuarioTxt;
     // End of variables declaration//GEN-END:variables
- class fondo extends JPanel
-    {
+ class fondo extends JPanel {
+
         private Image imagen;
+
         @Override
-        public void paint(Graphics g)
-        {
-           imagen = new ImageIcon(getClass().getResource("/Imagenes/inicioR.png")).getImage();
-           g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-           setOpaque(false);
-           super.paint(g);
-        }        
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imagenes/inicioR.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
     }
 
 }

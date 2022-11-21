@@ -7,12 +7,15 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import refaccionaria.Acciones.Conexion;
 import refaccionaria.Acciones.Update;
+import refaccionaria.Validaciones.ValidarC;
 
 /**
  *
  * @author jesanher
  */
 public class Actualizar_Servicios extends javax.swing.JPanel {
+
+    ValidarC v = new ValidarC();
 
     /**
      * Creates new form Actualizar_Servicios
@@ -41,8 +44,9 @@ public class Actualizar_Servicios extends javax.swing.JPanel {
             st = conexion.createStatement();
             ResultSet rs = st.executeQuery(sql);
             System.out.println(sql);
-
+            int x = 0;
             while (rs.next()) {
+               // JOptionPane.showMessageDialog(null, "Servicio encontrado");
                 textFieldId.setText(rs.getString(1));
                 textFieldPrecio.setText(rs.getString(3));
 
@@ -80,6 +84,7 @@ public class Actualizar_Servicios extends javax.swing.JPanel {
         textFieldPrecio.setToolTipText("");
         textFieldPrecio.setLabelText("Precio del servicio");
 
+        textFieldId.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         textFieldId.setLabelText("ID del servicio");
 
         textFieldDescrip.setLabelText("Descripcion del servicio");
@@ -165,24 +170,30 @@ public class Actualizar_Servicios extends javax.swing.JPanel {
                 .addGap(62, 62, 62))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    Update update=new Update();
+
+    Update update = new Update();
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         // TODO add your handling code here:
-        RellenotxtServicios();
+        String descripcion = textFieldDescrip.getText();
+        if (v.Validar_ServicioV(descripcion) == 0) {
+            RellenotxtServicios();
+        } else {
+            JOptionPane.showMessageDialog(null, "Servicio NO encontrado!!");
+            LimpiarServiciosTxt();
+        }
     }//GEN-LAST:event_bBuscarActionPerformed
 
     private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
         // TODO add your handling code here:
-        if(!"".equals(textFieldId.getText())|| !"".equals(textFieldDescrip.getText())
-            || !"".equals(textFieldPrecio.getText())){
+        if (!"".equals(textFieldId.getText()) || !"".equals(textFieldDescrip.getText())
+                || !"".equals(textFieldPrecio.getText())) {
 
             update.updateServicios(Integer.parseInt(textFieldId.getText()), textFieldDescrip.getText(), (int) Double.parseDouble(textFieldPrecio.getText()));
- 
+
             LimpiarServiciosTxt();
 
             JOptionPane.showMessageDialog(null, "Servicio actualizado!");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Los campos estan vacios");
         }
     }//GEN-LAST:event_bActualizarActionPerformed
