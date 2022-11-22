@@ -37,7 +37,7 @@ public class Arqueo extends javax.swing.JPanel {
 
     public void init() {
         Calendar calendar = new GregorianCalendar();
-        Fecha_venta.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH)+1 )+ "-" + calendar.get(Calendar.YEAR) + "");
+        Fecha_venta.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.YEAR) + "");
     }
 
     public void comboP() {
@@ -116,7 +116,7 @@ public class Arqueo extends javax.swing.JPanel {
         });
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ingrse el monto inicial con el que inicio su turno");
+        jLabel2.setText("Ingrse el monto inicial con el que inicio su turno y lo que tiene en caja");
 
         javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
         roundPanel2.setLayout(roundPanel2Layout);
@@ -124,17 +124,15 @@ public class Arqueo extends javax.swing.JPanel {
             roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtMontoIni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTotalVS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTotalCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtGananciaS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtxDineroS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDineroU, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))))
+                    .addComponent(txtMontoIni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTotalVS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTotalCS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtGananciaS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtxDineroS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDineroU, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         roundPanel2Layout.setVerticalGroup(
@@ -153,7 +151,7 @@ public class Arqueo extends javax.swing.JPanel {
                 .addComponent(txtxDineroS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(txtDineroU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
@@ -186,10 +184,9 @@ public class Arqueo extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Fecha_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cambo_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(roundPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(cambo_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,28 +207,36 @@ public class Arqueo extends javax.swing.JPanel {
         // TODO add your handling code here:
         String fecha = Fecha_venta.getText();
         String fecha_compra = Fecha_venta.getText();
-        if (!txtMontoIni.equals("")&& cambo_empleado.getSelectedIndex()!=0 && !txtDineroU.getText().equals(s)) {
-            float total_ventas = Float.parseFloat(s.BuacarTotalV(fecha));
-            txtTotalVS.setText("" + total_ventas);
-            float total_compra = Float.parseFloat(s.BuscarTotalCompra(fecha_compra));
-            txtTotalCS.setText("" + total_compra);
-            float ganancia = 0;
-            ganancia = total_ventas - total_compra;
-            txtGananciaS.setText("" + ganancia);
-            float dinero_caja = 0;
-            float monto_inicial = Float.parseFloat(txtMontoIni.getText());
-            dinero_caja = (monto_inicial + total_ventas) - total_compra;
-            txtxDineroS.setText("" + dinero_caja);
-            float catidad=Float.parseFloat(txtDineroU.getText());
-            String nombre= cambo_empleado.getSelectedItem().toString();
-            String mensaje="El empleado: "+nombre+", Tiene la cantidad de: "+catidad;
-            
-            if (catidad>dinero_caja) {
-                JOptionPane.showMessageDialog(rootPane,mensaje+" Tiene una cantidad mayor que el sistema arroja"," Advertencia!", JOptionPane.WARNING_MESSAGE);
-            }else if (catidad==dinero_caja) {
-                JOptionPane.showMessageDialog(rootPane,mensaje+" Tiene la cantidad exacta que el sistema arrojo"," Info", JOptionPane.INFORMATION_MESSAGE);
-            }else if (catidad<dinero_caja) {
-                JOptionPane.showMessageDialog(rootPane,mensaje+" Tiene una cantidad menor que el sistema arroja"," Error", JOptionPane.ERROR_MESSAGE);
+        if (!txtMontoIni.equals("") && cambo_empleado.getSelectedIndex() != 0 && !txtDineroU.getText().equals(s)) {
+            String total_ventasT = s.BuacarTotalV(fecha);
+            String total_compraT = s.BuscarTotalCompra(fecha_compra);
+            System.out.println(total_ventasT + "----" + total_compraT);
+            if (total_ventasT != null && total_compraT != null) {
+                float total_ventas = Float.parseFloat(total_ventasT);
+                float total_compra = Float.parseFloat(total_compraT);
+                txtTotalVS.setText("" + total_ventas);
+                txtTotalCS.setText("" + total_compra);
+                float ganancia = 0;
+                ganancia = total_ventas - total_compra;
+                txtGananciaS.setText("" + ganancia);
+                float dinero_caja = 0;
+                float monto_inicial = Float.parseFloat(txtMontoIni.getText());
+                dinero_caja = (monto_inicial + total_ventas) - total_compra;
+                txtxDineroS.setText("" + dinero_caja);
+                float catidad = Float.parseFloat(txtDineroU.getText());
+                String nombre = cambo_empleado.getSelectedItem().toString();
+                String mensaje = "El empleado: " + nombre + ", Tiene la cantidad de: " + catidad;
+
+                if (catidad > dinero_caja) {
+                    JOptionPane.showMessageDialog(rootPane, mensaje + " Tiene una cantidad mayor que el sistema arroja", " Advertencia!", JOptionPane.WARNING_MESSAGE);
+                } else if (catidad == dinero_caja) {
+                    JOptionPane.showMessageDialog(rootPane, mensaje + " Tiene la cantidad exacta que el sistema arrojo", " Info", JOptionPane.INFORMATION_MESSAGE);
+                } else if (catidad < dinero_caja) {
+                    JOptionPane.showMessageDialog(rootPane, mensaje + " Tiene una cantidad menor que el sistema arroja", " Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "No tiene ninguna venta y/o compra, registre ambas cosas!!");
             }
 
         } else {
