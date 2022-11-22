@@ -58,12 +58,7 @@
                                       <Component id="comboBoxEmpleado" min="-2" pref="242" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="comboBoxServicio" min="-2" pref="201" max="-2" attributes="0"/>
-                                          <Component id="bAnadirS" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace min="6" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="Fecha_venta" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
                                           <Component id="bGuardar" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
@@ -117,15 +112,9 @@
                           <Group type="102" attributes="0">
                               <Component id="txtCodigoBarras" min="-2" pref="42" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtCantidad" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Component id="comboBoxServicio" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="bAnadirA" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="bAnadirS" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtCantidad" min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="bAnadirA" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -153,7 +142,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagenes/Vender.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Guardar Venta"/>
+        <Property name="text" type="java.lang.String" value="Vender Producto"/>
       </Properties>
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="Fecha_venta">
@@ -177,29 +166,6 @@
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Monto final"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="bAnadirS">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="bd" red="20" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto" size="14" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="19" green="19" red="19" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAnadirSActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bGuardar">
       <Properties>
@@ -426,22 +392,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxEmpleadoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="refaccionaria.swing.txtf.ComboBoxA" name="comboBoxServicio">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="Seleccione el servicio"/>
-          </StringArray>
-        </Property>
-        <Property name="labeText" type="java.lang.String" value=""/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxServicioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bquitarF">

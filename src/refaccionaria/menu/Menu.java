@@ -40,18 +40,13 @@ public class Menu extends JPanel {
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DIRECTIONS_BIKE, "Tipo de moto", "Agregar tipo", "Mostrar tipo", "Actualizar tipo", "Eliminar tipo"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS_REMOTE, "Servicios", "Agregar servicio", "Mostrar servicios", "Actualizar servicio", "Eliminar servicio"));
         addTitle("Seccion 2");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MONETIZATION_ON, "Venta", "Nueva Venta", "Mostrar Ventas"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MONETIZATION_ON, "Venta", "Vender Producto", "Cobrar Servicio","Mostar Venta"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.BUSINESS_CENTER, "Compra", "Nueva compra", "Mostar Compras"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PEOPLE, "Clientes", "Agregar Cliente", "Mostrar Cliente", "Actualizar Cliente", "Eliminar Cliente"));
         addTitle("Seccion 3");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.TAB, "Usuarios", "Agregar Usuario", "Mostrar Usuario", "Actualizar Usuario", "Eliminar Usuario"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.GROUP, "Empleados", "Agregar Empleado", "Mostar Empleado", "Actualizar Empleado", "Eliminar Empleado"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.BUSINESS, "Arqueo de caja"));
-        /*
-        addTitle(".................................................................");
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EXIT_TO_APP, "Salir"));*/
-       // space();
-        //addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.EXIT_TO_APP, "Salir"));
 
     }
 
@@ -111,14 +106,7 @@ public class Menu extends JPanel {
     public void addSpace(int size) {
         panelMenu.add(new JLabel(), "h " + size + "!");
     }
-
-    private void space() {
-        panelMenu.add(new JLabel(), "push");
-    }
     
-    
-    
-
     public void setSelectedIndex(int index, int indexSubMenu) {
         for (Component com : panelMenu.getComponents()) {
             if (com instanceof MenuItem) {
