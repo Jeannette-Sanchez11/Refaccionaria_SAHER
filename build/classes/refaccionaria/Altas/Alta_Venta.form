@@ -58,16 +58,13 @@
                                       <Component id="comboBoxEmpleado" min="-2" pref="242" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="6" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="Fecha_venta" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
                                           <Component id="bGuardar" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
                                           <Component id="bCancelar" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -159,7 +156,7 @@
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="txtCodigoBarras">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Coidgo de barras"/>
+        <Property name="labelText" type="java.lang.String" value="Codigo de barras"/>
       </Properties>
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="txtMontoFinal">

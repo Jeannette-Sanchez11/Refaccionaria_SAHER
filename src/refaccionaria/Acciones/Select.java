@@ -231,10 +231,10 @@ public class Select {
 
         return idc;
     }
-    
-    public String BuacarID_Cliente(String nombre,String ap_Pat, String ap_Mat) {
+
+    public String BuacarID_Cliente(String nombre, String ap_Pat, String ap_Mat) {
         String id_Cliente = "";
-        sql = " select id_Cliente from cliente where nombre='"+nombre+"' and ap_Pat='"+ap_Pat+"'  and ap_Mat='"+ap_Mat+"';";
+        sql = " select id_Cliente from cliente where nombre='" + nombre + "' and ap_Pat='" + ap_Pat + "'  and ap_Mat='" + ap_Mat + "';";
         try {
             st = conex.createStatement();
             rs = st.executeQuery(sql);
@@ -255,8 +255,8 @@ public class Select {
 
         return id_Cliente;
     }
-    
-  public String BuscarPrecio(String codi_Barra) {
+
+    public String BuscarPrecio(String codi_Barra) {
         String precio = "";
         sql = "select precio from articulos where codi_Barra='" + codi_Barra + "';";
         try {
@@ -278,8 +278,8 @@ public class Select {
         }
 
         return precio;
-    }  
-    
+    }
+
     public String[] verNombre() {
         String sql = "select nombre_Emp from Empleado where status_empleado=2;";
         String[] x = new String[1];
@@ -307,10 +307,10 @@ public class Select {
         }
         return x;
     }
-    
+
     public String BuacarID_Servi(String descripcion) {
         String id_Servi = "";
-        sql = "select id_Servi from Servicios where descripcion = '"+descripcion+"';";
+        sql = "select id_Servi from Servicios where descripcion = '" + descripcion + "';";
         try {
             st = conex.createStatement();
             rs = st.executeQuery(sql);
@@ -331,10 +331,10 @@ public class Select {
 
         return id_Servi;
     }
-    
+
     public String BuacarPrecio_Servi(String descripcion) {
         String precio = "";
-        sql = "select precio_Servi from Servicios where descripcion = '"+descripcion+"';";
+        sql = "select precio_Servi from Servicios where descripcion = '" + descripcion + "';";
         try {
             st = conex.createStatement();
             rs = st.executeQuery(sql);
@@ -355,7 +355,7 @@ public class Select {
 
         return precio;
     }
-    
+
     public String[] verServicios() {//Mostrar la lista de proveedores
         String sql = "select descripcion from servicios;";
         String[] x = new String[1];
@@ -383,10 +383,10 @@ public class Select {
         }
         return x;
     }
-    
+
     public String BuacarID_Emp(String nombre_Emp) {
         String id_Emp = "";
-        sql = " select id_Emp from empleado where nombre_Emp='"+nombre_Emp+"' and status_Empleado=2;";
+        sql = " select id_Emp from empleado where nombre_Emp='" + nombre_Emp + "' and status_Empleado=2;";
         try {
             st = conex.createStatement();
             rs = st.executeQuery(sql);
@@ -407,7 +407,7 @@ public class Select {
 
         return id_Emp;
     }
-    
+
     public String buscarId_Venta() {//busca el id compra mas alto
         String idc = "";
         sql = "select max(id_Ventas) from venta;";
@@ -431,10 +431,10 @@ public class Select {
 
         return idc;
     }
-    
+
     public String BuscarCodigo_Barra(String nombre_Arti) {
         String codi = "";
-        sql = "select codi_Barra from articulos where nombre_Arti= '"+nombre_Arti+"';";
+        sql = "select codi_Barra from articulos where nombre_Arti= '" + nombre_Arti + "';";
         try {
             st = conex.createStatement();
             rs = st.executeQuery(sql);
@@ -455,7 +455,51 @@ public class Select {
 
         return codi;
     }
-    
-    
+
+    public String BuacarTotalV(String fecha) {
+        String total = "";
+        sql = "select SUM(monto_Final) from Venta where fecha_Venta = '" + fecha + "';";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                total = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return total;
+    }
+
+    public String BuscarTotalCompra(String fecha_compra) {
+        String total = "";
+        sql = "select SUM(monto_TotalC) from CompraM where fecha_Compra='"+fecha_compra+"';";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                total = rs.getString(1);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        return total;
+    }
 
 }

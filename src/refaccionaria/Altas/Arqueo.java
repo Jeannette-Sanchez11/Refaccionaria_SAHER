@@ -5,19 +5,24 @@
  */
 package refaccionaria.Altas;
 
+import java.awt.Component;
 import java.sql.Connection;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
 import refaccionaria.Acciones.Conexion;
 import refaccionaria.Acciones.Select;
+
 /**
  *
  * @author jesanher
  */
 public class Arqueo extends javax.swing.JPanel {
+
     Select s;
     Connection conex;
     Conexion c = new Conexion();
+    private Component rootPane;
 
     /**
      * Creates new form Arqueo
@@ -27,13 +32,14 @@ public class Arqueo extends javax.swing.JPanel {
         init();
         conex = c.ConectarBD();
         s = new Select();
+        comboP();
     }
 
     public void init() {
         Calendar calendar = new GregorianCalendar();
-        Fecha_venta.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.YEAR) + "");
+        Fecha_venta.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH)+1 )+ "-" + calendar.get(Calendar.YEAR) + "");
     }
-    
+
     public void comboP() {
         cambo_empleado.removeAll();
         //comboTipo.addItem("Seleccione");
@@ -56,13 +62,14 @@ public class Arqueo extends javax.swing.JPanel {
         Fecha_venta = new refaccionaria.swing.txtf.TextFielda();
         cambo_empleado = new refaccionaria.swing.txtf.ComboBoxA();
         roundPanel2 = new refaccionaria.swing.RoundPanel();
-        textFielda1 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda2 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda3 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda4 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda5 = new refaccionaria.swing.txtf.TextFielda();
-        textFielda6 = new refaccionaria.swing.txtf.TextFielda();
+        txtMontoIni = new refaccionaria.swing.txtf.TextFielda();
+        txtTotalVS = new refaccionaria.swing.txtf.TextFielda();
+        txtTotalCS = new refaccionaria.swing.txtf.TextFielda();
+        txtGananciaS = new refaccionaria.swing.txtf.TextFielda();
+        txtxDineroS = new refaccionaria.swing.txtf.TextFielda();
+        txtDineroU = new refaccionaria.swing.txtf.TextFielda();
         bquitarF = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setOpaque(false);
 
@@ -82,24 +89,24 @@ public class Arqueo extends javax.swing.JPanel {
             }
         });
 
-        roundPanel2.setBackground(new java.awt.Color(27, 27, 27));
+        roundPanel2.setBackground(new java.awt.Color(31, 31, 31));
 
-        textFielda1.setLabelText("Monto inicial");
+        txtMontoIni.setLabelText("Monto inicial");
 
-        textFielda2.setLabelText("Total de ventas (Ingresos)");
+        txtTotalVS.setLabelText("Total de ventas (Ingresos)");
 
-        textFielda3.setLabelText("Total de compras (Egresos)");
+        txtTotalCS.setLabelText("Total de compras (Egresos)");
 
-        textFielda4.setLabelText("Ganancia (Según sistema)");
+        txtGananciaS.setLabelText("Ganancia (Según sistema)");
 
-        textFielda5.setLabelText("Dinero en caja (Según sistema)");
+        txtxDineroS.setLabelText("Dinero en caja (Según sistema)");
 
-        textFielda6.setLabelText("Dinero en caja (Según usuario)");
+        txtDineroU.setLabelText("Dinero en caja (Según usuario)");
 
         bquitarF.setBackground(new java.awt.Color(220, 213, 53));
         bquitarF.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         bquitarF.setForeground(new java.awt.Color(25, 25, 25));
-        bquitarF.setText("Revisar");
+        bquitarF.setText("Calcular");
         bquitarF.setBorder(null);
         bquitarF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bquitarF.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +114,9 @@ public class Arqueo extends javax.swing.JPanel {
                 bquitarFActionPerformed(evt);
             }
         });
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Ingrse el monto inicial con el que inicio su turno");
 
         javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
         roundPanel2.setLayout(roundPanel2Layout);
@@ -116,30 +126,33 @@ public class Arqueo extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(textFielda1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFielda2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFielda3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFielda4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFielda5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFielda6, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)))
+                    .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addGroup(roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtMontoIni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtTotalVS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtTotalCS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtGananciaS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtxDineroS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDineroU, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         roundPanel2Layout.setVerticalGroup(
             roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(textFielda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addGap(15, 15, 15)
+                .addComponent(txtMontoIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFielda2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTotalVS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFielda3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTotalCS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFielda4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtGananciaS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(textFielda5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtxDineroS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(textFielda6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDineroU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addComponent(bquitarF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
@@ -155,13 +168,13 @@ public class Arqueo extends javax.swing.JPanel {
                         .addGap(350, 350, 350)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cambo_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                             .addComponent(Fecha_venta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(47, 47, 47)
                         .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,11 +195,49 @@ public class Arqueo extends javax.swing.JPanel {
 
     private void cambo_empleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambo_empleadoActionPerformed
         // TODO add your handling code here:
+        try {
+            c = new Conexion();
+            String nombre = cambo_empleado.getSelectedItem().toString();
+            if (!nombre.equals("")) {
+                String datos[] = s.verNombre();
+            }
+        } catch (Exception x) {
+
+        }
     }//GEN-LAST:event_cambo_empleadoActionPerformed
 
     private void bquitarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bquitarFActionPerformed
         // TODO add your handling code here:
-       
+        String fecha = Fecha_venta.getText();
+        String fecha_compra = Fecha_venta.getText();
+        if (!txtMontoIni.equals("")&& cambo_empleado.getSelectedIndex()!=0 && !txtDineroU.getText().equals(s)) {
+            float total_ventas = Float.parseFloat(s.BuacarTotalV(fecha));
+            txtTotalVS.setText("" + total_ventas);
+            float total_compra = Float.parseFloat(s.BuscarTotalCompra(fecha_compra));
+            txtTotalCS.setText("" + total_compra);
+            float ganancia = 0;
+            ganancia = total_ventas - total_compra;
+            txtGananciaS.setText("" + ganancia);
+            float dinero_caja = 0;
+            float monto_inicial = Float.parseFloat(txtMontoIni.getText());
+            dinero_caja = (monto_inicial + total_ventas) - total_compra;
+            txtxDineroS.setText("" + dinero_caja);
+            float catidad=Float.parseFloat(txtDineroU.getText());
+            String nombre= cambo_empleado.getSelectedItem().toString();
+            String mensaje="El empleado: "+nombre+", Tiene la cantidad de: "+catidad;
+            
+            if (catidad>dinero_caja) {
+                JOptionPane.showMessageDialog(rootPane,mensaje+" Tiene una cantidad mayor que el sistema arroja"," Advertencia!", JOptionPane.WARNING_MESSAGE);
+            }else if (catidad==dinero_caja) {
+                JOptionPane.showMessageDialog(rootPane,mensaje+" Tiene la cantidad exacta que el sistema arrojo"," Info", JOptionPane.INFORMATION_MESSAGE);
+            }else if (catidad<dinero_caja) {
+                JOptionPane.showMessageDialog(rootPane,mensaje+" Tiene una cantidad menor que el sistema arroja"," Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Favor de ingresar el monto inicial, el dinero en caja y indicar el empleado!!");
+        }
+
     }//GEN-LAST:event_bquitarFActionPerformed
 
 
@@ -195,12 +246,13 @@ public class Arqueo extends javax.swing.JPanel {
     private javax.swing.JButton bquitarF;
     private refaccionaria.swing.txtf.ComboBoxA cambo_empleado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private refaccionaria.swing.RoundPanel roundPanel2;
-    private refaccionaria.swing.txtf.TextFielda textFielda1;
-    private refaccionaria.swing.txtf.TextFielda textFielda2;
-    private refaccionaria.swing.txtf.TextFielda textFielda3;
-    private refaccionaria.swing.txtf.TextFielda textFielda4;
-    private refaccionaria.swing.txtf.TextFielda textFielda5;
-    private refaccionaria.swing.txtf.TextFielda textFielda6;
+    private refaccionaria.swing.txtf.TextFielda txtDineroU;
+    private refaccionaria.swing.txtf.TextFielda txtGananciaS;
+    private refaccionaria.swing.txtf.TextFielda txtMontoIni;
+    private refaccionaria.swing.txtf.TextFielda txtTotalCS;
+    private refaccionaria.swing.txtf.TextFielda txtTotalVS;
+    private refaccionaria.swing.txtf.TextFielda txtxDineroS;
     // End of variables declaration//GEN-END:variables
 }
