@@ -42,7 +42,7 @@ public class Alta_Venta extends javax.swing.JPanel {
     public void init() {
         table1.fixTable(jScrollPane1);
         Calendar calendar = new GregorianCalendar();
-        Fecha_venta.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.YEAR) + "");
+        Fecha_venta.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH)+1 ) + "-" + calendar.get(Calendar.YEAR) + "");
     }
 
     public void comboP() {
@@ -126,7 +126,7 @@ public class Alta_Venta extends javax.swing.JPanel {
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setLabelText("Nombre del cliente");
 
-        txtCodigoBarras.setLabelText("Coidgo de barras");
+        txtCodigoBarras.setLabelText("Codigo de barras");
 
         txtMontoFinal.setLabelText("Monto final");
 
@@ -290,10 +290,8 @@ public class Alta_Venta extends javax.swing.JPanel {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Fecha_venta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(bGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(bCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel1))))
+                                            .addComponent(bCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))))
                             .addComponent(bquitarF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );

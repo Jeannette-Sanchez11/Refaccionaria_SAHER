@@ -26,7 +26,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="cambo_empleado" pref="173" max="32767" attributes="0"/>
                           <Component id="Fecha_venta" max="32767" attributes="0"/>
@@ -35,7 +35,7 @@
                       <Component id="roundPanel2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="201" max="32767" attributes="0"/>
+              <EmptySpace pref="162" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,24 +96,27 @@
     <Container class="refaccionaria.swing.RoundPanel" name="roundPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="1b" green="1b" red="1b" type="rgb"/>
+          <Color blue="1f" green="1f" red="1f" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="bquitarF" min="-2" pref="166" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="textFielda1" max="32767" attributes="0"/>
-                          <Component id="textFielda2" max="32767" attributes="0"/>
-                          <Component id="textFielda3" max="32767" attributes="0"/>
-                          <Component id="textFielda4" max="32767" attributes="0"/>
-                          <Component id="textFielda5" max="32767" attributes="0"/>
-                          <Component id="textFielda6" pref="370" max="32767" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtMontoIni" max="32767" attributes="0"/>
+                              <Component id="txtTotalVS" max="32767" attributes="0"/>
+                              <Component id="txtTotalCS" max="32767" attributes="0"/>
+                              <Component id="txtGananciaS" max="32767" attributes="0"/>
+                              <Component id="txtxDineroS" max="32767" attributes="0"/>
+                              <Component id="txtDineroU" pref="370" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="53" max="32767" attributes="0"/>
@@ -123,18 +126,19 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="textFielda1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="txtMontoIni" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="textFielda2" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTotalVS" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="textFielda3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTotalCS" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="textFielda4" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtGananciaS" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="textFielda5" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtxDineroS" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="textFielda6" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDineroU" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="123" max="32767" attributes="0"/>
                   <Component id="bquitarF" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -143,32 +147,32 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
+        <Component class="refaccionaria.swing.txtf.TextFielda" name="txtMontoIni">
           <Properties>
             <Property name="labelText" type="java.lang.String" value="Monto inicial"/>
           </Properties>
         </Component>
-        <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda2">
+        <Component class="refaccionaria.swing.txtf.TextFielda" name="txtTotalVS">
           <Properties>
             <Property name="labelText" type="java.lang.String" value="Total de ventas (Ingresos)"/>
           </Properties>
         </Component>
-        <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda3">
+        <Component class="refaccionaria.swing.txtf.TextFielda" name="txtTotalCS">
           <Properties>
             <Property name="labelText" type="java.lang.String" value="Total de compras (Egresos)"/>
           </Properties>
         </Component>
-        <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda4">
+        <Component class="refaccionaria.swing.txtf.TextFielda" name="txtGananciaS">
           <Properties>
             <Property name="labelText" type="java.lang.String" value="Ganancia (Seg&#xfa;n sistema)"/>
           </Properties>
         </Component>
-        <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda5">
+        <Component class="refaccionaria.swing.txtf.TextFielda" name="txtxDineroS">
           <Properties>
             <Property name="labelText" type="java.lang.String" value="Dinero en caja (Seg&#xfa;n sistema)"/>
           </Properties>
         </Component>
-        <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda6">
+        <Component class="refaccionaria.swing.txtf.TextFielda" name="txtDineroU">
           <Properties>
             <Property name="labelText" type="java.lang.String" value="Dinero en caja (Seg&#xfa;n usuario)"/>
           </Properties>
@@ -184,7 +188,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="19" green="19" red="19" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Revisar"/>
+            <Property name="text" type="java.lang.String" value="Calcular"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -195,6 +199,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bquitarFActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ingrse el monto inicial con el que inicio su turno"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

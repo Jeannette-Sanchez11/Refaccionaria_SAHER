@@ -62,7 +62,7 @@ public class Alta_compra extends javax.swing.JPanel {
     public void init() {
         TablaC.fixTable(jScrollPane1);
         Calendar calendar = new GregorianCalendar();
-        Fecha_compra.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.YEAR) + "");
+        Fecha_compra.setText("" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH)+1 ) + "-" + calendar.get(Calendar.YEAR) + "");
     }
 
     public void limpiar() {
