@@ -86,6 +86,9 @@ public class Main extends javax.swing.JFrame {
                     showForm(new Alta_Venta());
                 }
                 if (index == 5 && indexSubMenu == 2) {
+                    showForm(new Servicio_Cobro());
+                }
+                if (index == 5 && indexSubMenu == 3) {
                     showForm(new Buscar_Venta());
                 }
                 //Menu de compras----------------------------------------------------------------------------
@@ -134,10 +137,10 @@ public class Main extends javax.swing.JFrame {
                 if (index == 9 && indexSubMenu == 4) {
                     showForm(new Baja_Empleado());
                 }
-                 if (index == 10 && indexSubMenu == 0) {
+                if (index == 10 && indexSubMenu == 0) {
                     showForm(new Arqueo());
                 }
- /*else {
+                /*else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }*/
             }
@@ -151,11 +154,10 @@ public class Main extends javax.swing.JFrame {
         body.repaint();
         body.revalidate();
     }
-    
+
     public static Main getMain() {
         return main;
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
