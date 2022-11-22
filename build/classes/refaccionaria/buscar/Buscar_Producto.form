@@ -69,7 +69,7 @@
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="textFielda1">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Nombre del Producto"/>
+        <Property name="labelText" type="java.lang.String" value="Codigo de barra"/>
       </Properties>
     </Component>
     <Container class="refaccionaria.swing.RoundPanel" name="roundPanel1">

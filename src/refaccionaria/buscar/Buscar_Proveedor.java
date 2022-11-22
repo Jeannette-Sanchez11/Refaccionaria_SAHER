@@ -84,7 +84,7 @@ public class Buscar_Proveedor extends javax.swing.JPanel {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel1.setVerifyInputWhenFocusTarget(false);
 
-        txtrfcP.setLabelText("Nombre del Proveedor");
+        txtrfcP.setLabelText("RFC del Proveedor");
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));

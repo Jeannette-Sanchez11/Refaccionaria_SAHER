@@ -209,7 +209,7 @@ public class Buscar_Empleado extends javax.swing.JPanel {
             modelo.addColumn("Apellido materno");
             modelo.addColumn("status");
             modelo.addColumn("Telefono");
-            modelo.addColumn("Correp");
+            modelo.addColumn("Correo");
             while (rs.next()) {
                 Object[] filas = new Object[cantidadC];
                 for (int i = 0; i < cantidadC; i++) {

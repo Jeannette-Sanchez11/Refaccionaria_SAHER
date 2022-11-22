@@ -84,7 +84,7 @@ public class Buscar_Producto extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Mostrar Productos");
 
-        textFielda1.setLabelText("Nombre del Producto");
+        textFielda1.setLabelText("Codigo de barra");
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));

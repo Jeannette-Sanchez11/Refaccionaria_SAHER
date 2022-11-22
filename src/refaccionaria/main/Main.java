@@ -134,11 +134,9 @@ public class Main extends javax.swing.JFrame {
                 if (index == 9 && indexSubMenu == 4) {
                     showForm(new Baja_Empleado());
                 }
-                /* if (index == 10 && indexSubMenu == 0) {
-                    // showForm(new Baja_Empleado());
-                    fram.dispose();
-                    Inicio salir = new Inicio();
-                }*/
+                 if (index == 10 && indexSubMenu == 0) {
+                    showForm(new Arqueo());
+                }
  /*else {
                     showForm(new Form_Empty(index + " " + indexSubMenu));
                 }*/

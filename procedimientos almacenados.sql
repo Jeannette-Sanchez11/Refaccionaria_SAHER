@@ -21,14 +21,8 @@ BEGIN
 					--Actualizar el stock de producto
       				vrproduc.Stock := vrproduc.Stock + pcantidad;
       				update articulos set Stock = vrproduc.Stock where codi_barra = pcodi_barra;
-      				--Actualizar el total de compra
-      				vreg.Monto_totalC:= vreg.Monto_totalC + (pCantidad * pprecio_compra_Arti);
-      				update compraM set Monto_totalC = vreg.Monto_totalC where id_compra = pId_compra;
-      				ptotal_compra_arti:= pCantidad * pprecio_compra_Arti;
-      				--Insertar los datos a la tabla detalle venta
-
+					--inserta el producto
       				insert into detalle_CompraM values( pId_compra, pCNS_DC, pcodi_barra, pdescripcion, pprecio_compra_Arti, pCantidad, ptotal_compra_arti );
-
       				vRes := 1;
       				Commit;
 				ELSE
@@ -51,4 +45,6 @@ $$ LANGUAGE plpgsql; --Ya dejo con el INOUT en el ultimo parametro de entrada
 --llamda del procedimiento
 call Altadedetallecompraprove (2, 2, '00000000010', 'cable de frenos',800, 5, 4000, null);
 
-call Altadedetallecompraprove (1, 2, '00000000010', 'sex', 50.04,  10, 10.03, null);
+call Altadedetallecompraprove (1, 2, '00000000010', 'Cable universal', 50.04,  10, 10.03, null);
+
+-----------------------------------------------------------------------------------------------------------------------------

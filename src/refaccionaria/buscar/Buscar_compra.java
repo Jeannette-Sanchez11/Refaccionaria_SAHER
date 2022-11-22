@@ -162,6 +162,30 @@ public class Buscar_compra extends javax.swing.JPanel {
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         // TODO add your handling code here:
+        int id_compra = Integer.parseInt(textFielda1.getText());
+        try {
+            DefaultTableModel modelo = new DefaultTableModel();//objeto para la tabla
+            tablaC.setModel(modelo);
+            String sql = "select cm.id_Compra, p.nombre, cm.Monto_totalC, cm.fecha_Compra from compraM cm inner join proveedor p on cm.rfc_Proveedor= p.rfc_Proveedor where cm.id_Compra = "+id_compra+" ;";
+            System.out.println(sql);
+            ps = conex.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int cantidadC = rsMd.getColumnCount();
+            modelo.addColumn("ID ");
+            modelo.addColumn("Proveedor");
+            modelo.addColumn("Monto total");
+            modelo.addColumn("Fecha");
+            while (rs.next()) {
+                Object[] filas = new Object[cantidadC];
+                for (int i = 0; i < cantidadC; i++) {
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(filas);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
 
     }//GEN-LAST:event_bBuscarActionPerformed
 

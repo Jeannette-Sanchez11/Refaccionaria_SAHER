@@ -81,7 +81,7 @@ public class Buscar_TM extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TipoM.png"))); // NOI18N
         jLabel1.setText("Mostar Tipo de moto");
 
-        txtTm.setLabelText("Nombre del tipo de moto");
+        txtTm.setLabelText("Tipo de moto");
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
