@@ -77,6 +77,7 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         Bcancelar = new javax.swing.JButton();
 
+        setForeground(new java.awt.Color(255, 255, 255));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 680));
 
@@ -119,10 +120,12 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ingrese el nombre completo del cliente ");
+        jLabel2.setText("Ingrese el nombre del cliente ");
         jLabel2.setToolTipText("");
 
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Para poder buscar y actualizar");
 
@@ -165,8 +168,8 @@ public class Actualizar_Cliente extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(54, 54, 54)
                                         .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel3)))))))
                 .addContainerGap(55, Short.MAX_VALUE))
         );

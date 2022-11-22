@@ -367,7 +367,7 @@ public class Alta_Venta extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(comboBoxServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(2, 2, 2)
@@ -386,8 +386,11 @@ public class Alta_Venta extends javax.swing.JPanel {
 
     private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
         // TODO add your handling code here:
-        if (!txtNombre.equals("")&&!txtAp_Pat.equals("")&& !txtAp_Mat.equals("")&& !txtID_Cliente.equals("")&& comboBoxEmpleado.getSelectedIndex()!=0 && !txtMontoFinal.getText().equals("")|| !txtMontoFinal.equals("0.0")) {
+        if (!txtNombre.equals("") && !txtAp_Pat.equals("") && !txtAp_Mat.equals("") && !txtID_Cliente.equals("") && comboBoxEmpleado.getSelectedIndex() != 0 && !txtMontoFinal.getText().equals("")) {
             guardar_venta();
+            guardar_detale();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Favor de ingresar todos datos del la venta!!!");
         }
         con = 1;
         limpiar_todo();
@@ -478,6 +481,12 @@ public class Alta_Venta extends javax.swing.JPanel {
         // TODO add your handling code here:
         modelo = (DefaultTableModel) table1.getModel();
         if (table1.getSelectedRowCount() == 1) {
+            float monto_final = Float.parseFloat(txtMontoFinal.getText());
+            String monto_restar = table1.getValueAt(table1.getSelectedRow(), 4).toString();
+            float monto = Float.parseFloat(monto_restar);
+            float restado;
+            restado = monto_final - monto;
+            txtMontoFinal.setText("" + restado);
             modelo.removeRow(table1.getSelectedRow());
         } else if (table1.getSelectedRowCount() == 0) {
             JOptionPane.showMessageDialog(rootPane, "No hay nada en la tabla, favor de ingresar los datos");
@@ -565,30 +574,90 @@ public class Alta_Venta extends javax.swing.JPanel {
     }
 
     public void guardar_venta() {
-        int id_Cliente= Integer.parseInt(txtID_Cliente.getText());
-        String nombre_Emp= comboBoxEmpleado.getSelectedItem().toString();
+        int id_Cliente = Integer.parseInt(txtID_Cliente.getText());
+        String nombre_Emp = comboBoxEmpleado.getSelectedItem().toString();
         int id_Emp = Integer.parseInt(s.BuacarID_Emp(nombre_Emp));
-        String fecha_Venta= Fecha_venta.getText();
+        String fecha_Venta = Fecha_venta.getText();
         float monto_Final = Float.parseFloat(txtMontoFinal.getText());
-        if (monto_Final!=0) {
-            if (in.insertVenta(id_Cliente, id_Emp, fecha_Venta, monto_Final)) {
-                JOptionPane.showMessageDialog(rootPane, "Venta Realizada!!!");
-            }else{
-                JOptionPane.showMessageDialog(rootPane, "Error al guardar la venta");
-            }
-             JOptionPane.showMessageDialog(rootPane, "Ingrese el producto o material");
-        }
+        if (!txtID_Cliente.getText().equals("") && comboBoxEmpleado.getSelectedIndex() != 0 && !txtMontoFinal.getText().equals("")) {
+            if (monto_Final != 0) {
+                if (in.insertVenta(id_Cliente, id_Emp, fecha_Venta, monto_Final)) {
+                    JOptionPane.showMessageDialog(rootPane, "Venta Realizada!!!");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Error al guardar la venta");
+                }
 
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Ingrese el producto o material");
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Todos  los campos, para realizar la venta");
+        }
     }
 
     public void guardar_detale() {
         for (int i = 0; i < table1.getRowCount(); i++) {
-            int id_Venta= Integer.parseInt(s.buscarId_Venta());
+            int id_Venta = Integer.parseInt(s.buscarId_Venta());
             int cns = Integer.parseInt(table1.getValueAt(i, 0).toString());
-            String nombre_buscar= table1.getValueAt(i, 1).toString();
-            
-            
-            
+            String nombre_art = table1.getValueAt(i, 1).toString();
+            String codi_Barra = s.BuscarCodigo_Barra(nombre_art);
+            String descripcion = table1.getValueAt(i, 1).toString();
+            float precio = Float.parseFloat(table1.getValueAt(i, 2).toString());
+            int cantidad = Integer.parseInt(table1.getValueAt(i, 3).toString());
+            float subtotal = Float.parseFloat(table1.getValueAt(i, 4).toString());
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            int pRes;
+
+            if (v.Validar_ArticuloV(codi_Barra) == 0) {
+                String codigo_b = codi_Barra;
+
+                try {
+                    conex = c.ConectarBD();
+                    String sql = "Call altadedetalleventa(" + id_Venta + "," + cns + ",'" + codigo_b + "'," + precio + "," + cantidad + "," + subtotal + ",null);";
+                    ps = conex.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    rs.next();
+                    pRes = rs.getInt("pRes");
+                    //Condicion para cuando ya se ha guardado el registro
+                    if (pRes == 1) {
+                        System.out.println("Detalle guardado!!");
+                    } else if (pRes == 2) {
+                        JOptionPane.showMessageDialog(null, "Error al realizar la venta, no e encuentra el id de la venta");
+                    } else if (pRes == 3) {
+                        JOptionPane.showMessageDialog(null, "Error al realizar la venta", "No hay el servicio ingresado!", JOptionPane.ERROR_MESSAGE);
+                    } else if (pRes == 4) {
+                        JOptionPane.showMessageDialog(null, "Error al realizar la venta", "No hay suficiente stock", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (Exception e) {
+                }
+            } else if (v.Validar_ServicioV(descripcion) == 0) {
+                String desc = descripcion;
+                int id_Servi = Integer.parseInt(s.BuacarID_Servi(descripcion));
+                try {
+                    conex = c.ConectarBD();
+                    String sql = "call AltadedetalleventaServicio (" + id_Venta + "," + id_Servi + "," + cns + "," + precio + "," + cantidad + "," + subtotal + ",null);";
+                    ps = conex.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    rs.next();
+                    pRes = rs.getInt("pRes");
+                    //Condicion para cuando ya se ha guardado el registro
+                    if (pRes == 1) {
+                        System.out.println("Detalle guardado!!");
+                    } else if (pRes == 2) {
+                        JOptionPane.showMessageDialog(null, "Error al realizar la venta, no e encuentra el id de la compra");
+                    } else if (pRes == 3) {
+                        JOptionPane.showMessageDialog(null, "Error al realizar la venta", "No hay el articulo ingresado!", JOptionPane.ERROR_MESSAGE);
+                    } /*else if (pRes == 0) {
+                        JOptionPane.showMessageDialog(null, "Error al realizar la venta", "El # esta registrado", JOptionPane.ERROR_MESSAGE);
+                    }*/
+                } catch (Exception e) {
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "No existe ningun servicio o articulo ingresado");
+            }
+
         }
 
     }

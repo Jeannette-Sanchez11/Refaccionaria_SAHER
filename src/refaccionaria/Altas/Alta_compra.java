@@ -120,7 +120,7 @@ public class Alta_compra extends javax.swing.JPanel {
 
         txtMontoF.setLabelText("Monto final");
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 27)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Comprar.png"))); // NOI18N
         jLabel1.setText("Nueva Compra");
@@ -273,9 +273,9 @@ public class Alta_compra extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,6 +353,12 @@ public class Alta_compra extends javax.swing.JPanel {
         // TODO add your handling code here:
         modelo = (DefaultTableModel)TablaC.getModel();
         if (TablaC.getSelectedRowCount() == 1) {
+            float precio_total = Float.parseFloat(txtMontoF.getText());
+            String monto_sub= TablaC.getValueAt(TablaC.getSelectedRow(), 5).toString() ;
+            float monto=Float.parseFloat(monto_sub);
+            float restado;
+            restado= precio_total-monto;
+            txtMontoF.setText(""+restado);
             modelo.removeRow(TablaC.getSelectedRow());
         } else if (TablaC.getSelectedRowCount() == 0) {
             JOptionPane.showMessageDialog(rootPane, "No hay nada en la tabla, favor de ingresar los datos");
@@ -450,8 +456,10 @@ public class Alta_compra extends javax.swing.JPanel {
                     System.out.println("Detalle guardado!!");
                 } else if (pRes == 2) {
                     JOptionPane.showMessageDialog(null, "Error al realizar la compra, no e encuentra el id de la compra");
+                    System.out.println("No existe el id de venta!!");
                 } else if (pRes == 3) {
                     JOptionPane.showMessageDialog(null, "Error al realizar la compra", "No hay el articulo ingresado!", JOptionPane.ERROR_MESSAGE);
+                    System.out.println("No existe el producto");
                 } else if (pRes == 0) {
                     JOptionPane.showMessageDialog(null, "Error al realizar la compra", "error", JOptionPane.ERROR_MESSAGE);
                 }

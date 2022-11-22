@@ -432,6 +432,30 @@ public class Select {
         return idc;
     }
     
+    public String BuscarCodigo_Barra(String nombre_Arti) {
+        String codi = "";
+        sql = "select codi_Barra from articulos where nombre_Arti= '"+nombre_Arti+"';";
+        try {
+            st = conex.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                codi = rs.getString(1);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+
+        return codi;
+    }
+    
     
 
 }

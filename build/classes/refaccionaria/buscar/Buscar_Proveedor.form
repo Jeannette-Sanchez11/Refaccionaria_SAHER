@@ -75,7 +75,7 @@
     </Component>
     <Component class="refaccionaria.swing.txtf.TextFielda" name="txtrfcP">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Nombre del Proveedor"/>
+        <Property name="labelText" type="java.lang.String" value="RFC del Proveedor"/>
       </Properties>
     </Component>
     <Container class="refaccionaria.swing.RoundPanel" name="roundPanel1">
