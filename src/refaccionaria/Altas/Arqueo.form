@@ -50,11 +50,10 @@
                       <Component id="Fecha_venta" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="cambo_empleado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="roundPanel2" max="32767" attributes="0"/>
+                  <Component id="roundPanel2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,19 +104,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="bquitarF" min="-2" pref="166" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtMontoIni" max="32767" attributes="0"/>
-                              <Component id="txtTotalVS" max="32767" attributes="0"/>
-                              <Component id="txtTotalCS" max="32767" attributes="0"/>
-                              <Component id="txtGananciaS" max="32767" attributes="0"/>
-                              <Component id="txtxDineroS" max="32767" attributes="0"/>
-                              <Component id="txtDineroU" pref="370" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="txtMontoIni" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtTotalVS" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtTotalCS" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtGananciaS" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtxDineroS" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtDineroU" alignment="0" pref="370" max="32767" attributes="0"/>
+                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
@@ -139,7 +134,7 @@
                   <Component id="txtxDineroS" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="txtDineroU" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="123" max="32767" attributes="0"/>
+                  <EmptySpace pref="105" max="32767" attributes="0"/>
                   <Component id="bquitarF" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
@@ -205,7 +200,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrse el monto inicial con el que inicio su turno"/>
+            <Property name="text" type="java.lang.String" value="Ingrse el monto inicial con el que inicio su turno y lo que tiene en caja"/>
           </Properties>
         </Component>
       </SubComponents>
